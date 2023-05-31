@@ -4,5 +4,12 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+          <property name = "driverClassName" value ="com.mysql.jdbc.Driver"/>
+          <property name = "jdbcUrl" value ="jdbc://jdbc:mysql://project-db-stu.smhrd.com:3307/BoB?useSSL=false&amp;serverTimezone=UTC"/>
+          <property name = "username" value ="BoB"/>
+          <property name = "password" value ="sjss17"/>
+	</bean>
 		
 </beans>

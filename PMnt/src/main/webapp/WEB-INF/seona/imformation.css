@@ -1,0 +1,114 @@
+@font-face {
+    font-family: 'locus_sangsang';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/locus_sangsang.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0faff;
+    font-family: 'locus_sangsang';
+
+}
+.container{
+    position: relative;
+    max-width: 600px;
+    width: 100%;
+    border-radius: 6px;
+    padding: 30px;
+    margin: 0 15px;
+    background-color: #86CBC5;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container header{
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+}
+.container header::before{
+    content: "";
+    display: inline-block;
+    position: inherit;
+    background-image: url("user_gear.png");
+    background-size: 40px 40px;
+    bottom: -2px;
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    margin-right: 20px;
+    left: 0;
+}
+
+.container form{
+    position: relative;
+    margin-top: 16px;
+    min-height: 400px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.container form .title{
+    display: block;
+    margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    color: #333;
+}
+.fields{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: stretch;
+}
+
+.fields input{
+    height: 30px;
+    outline: none;
+    padding: 0 15px;
+    font-size: 5px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 8px;
+    border: 1px solid #aaa;
+}
+.fields input:focus{
+    box-shadow: 0 1px 0 #ddd;
+}
+.input_field{
+    padding: 8px;
+    font-size: 15px;
+    border: 0; 
+    cursor: pointer;
+    outline: none;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: center;
+    
+}
+.btn{
+    width: 20%;
+    background: #fff;
+}
+.btn:hover{
+    background: #B8E6E1;
+}
+.command{
+    padding: 10px 15px;
+   
+}
+

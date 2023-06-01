@@ -40,7 +40,7 @@ body{
     content: "";
     display: inline-block;
     position: inherit;
-    background-image: url("/imgs/user_gear.png");
+    background-image: url("../imgs/user_gear.png");
     background-size: 40px 40px;
     bottom: -2px;
     width: 40px;

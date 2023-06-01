@@ -2,7 +2,19 @@ package kr.smhrd.PMnt.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 
-@Mapper
-public class LoginMapper {
 
+
+@Mapper
+public interface LoginMapper {
+
+	
+
+	
+
+	
+	
+	
+
+	//로그인
+	
 }

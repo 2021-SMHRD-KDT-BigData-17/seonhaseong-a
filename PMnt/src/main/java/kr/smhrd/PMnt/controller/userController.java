@@ -8,8 +8,15 @@ public class userController {
 
 	
 	@RequestMapping("/login.do")
-	public String boardAjaxMain() {
+	public String login() {
 		
 		return "loginpage";
 	}
+	
+	@RequestMapping("/imformation.do")
+	public String imformation() {
+		
+		return "imformation";
+	}
+	
 }

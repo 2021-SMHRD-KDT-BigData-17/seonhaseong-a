@@ -2,7 +2,10 @@ package kr.smhrd.PMnt.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 
-@Mapper
-public class ImformationMapper {
+import kr.smhrd.PMnt.entity.ProUser;
 
+@Mapper
+public interface ImformationMapper {
+	
+	public ProUser UserLogin(ProUser prouser);
 }

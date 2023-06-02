@@ -10,7 +10,7 @@
 //import kr.board.mapper.BoardMapper;
 //import kr.smhrd.PMnt.entity.ProUser;
 //import kr.smhrd.PMnt.mapper.LoginMapper;
-//
+
 //public class userImformation {
 //
 //	@Autowired // 의존성 주입

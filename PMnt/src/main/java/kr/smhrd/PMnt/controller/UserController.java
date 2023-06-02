@@ -23,17 +23,17 @@ public class UserController {
     }
 
     // 로그인 페이지
-    @GetMapping
+    @GetMapping("/login.do")
     public String toLoginPage(HttpSession session) {
         String id = (String) session.getAttribute("userBno");
         if (id != null) { // 로그인 됨
             return "redirect:/";
         }
-        return "loginpage"; // 로그인 안됨
+        return "login.do"; // 로그인 안됨
     }
 
     // 로그인
-    @PostMapping
+    @PostMapping("/login.do")
     public String login(String userBno, String userPw, HttpSession session) {
         String id = userService.login(userBno, userPw);
         if (id == null) { // 로그인 실패

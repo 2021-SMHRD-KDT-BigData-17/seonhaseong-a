@@ -25,9 +25,9 @@ public class UserController {
     // 로그인 페이지
     @GetMapping("/login.do")
     public String toLoginPage(HttpSession session) {
-        String id = (String) session.getAttribute("userBno");
+        String id = (String) session.getAttribute("userid");
         if (id != null) { // 로그인 됨
-            return "redirect:/";
+            return "redirect:/main.do";
         }
         return "login.do"; // 로그인 안됨
     }
@@ -39,13 +39,13 @@ public class UserController {
         if (id == null) { // 로그인 실패
             return "redirect:/login.do";
         }
-        session.setAttribute("userBno", id);
-        return "redirect:/";
+        session.setAttribute("userid", id);
+        return "redirect:/main.do";
     }
     
     //회원가입페이지
     @GetMapping("/signup.do")
-    public String toSignupPage() {return "signuppage";}
+    public String toSignupPage() {return "/signup.do";}
     
     //회원가입
     @PostMapping("/signup.do")
@@ -53,10 +53,10 @@ public class UserController {
     	try {
     		userService.signup(proUser);
     	}catch(DuplicateKeyException e) {
-    		return "redirect:/signup?error_code=-1";
+    		return "redirect:/signup.do?error_code=-1";
     	}catch(Exception e) {
     		e.printStackTrace();
-    		return "redirect://signup?error_code=-99";
+    		return "redirect://signup.do?error_code=-99";
     	}
 		return "redirect:/login.do";
  

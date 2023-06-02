@@ -1,9 +1,6 @@
 package kr.smhrd.PMnt.mapper;
 
 
-
-import org.apache.ibatis.annotations.Param;
-
 import kr.smhrd.PMnt.entity.ProUser;
 
 public interface LoginMapper {
@@ -14,13 +11,9 @@ public interface LoginMapper {
 	
 
 	//로그인 - 회원정보
-	ProUser getLogin(@Param ("userBno") String userBno);
+	ProUser getLogin(String userBno);
 	 
 
-		
-	
-		
-	
 		
 	
 }

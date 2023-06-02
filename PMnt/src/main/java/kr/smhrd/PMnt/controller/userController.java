@@ -34,10 +34,10 @@ public class userController {
 
 	
 	
-	@RequestMapping("/imformation.do")
-	public String imformation() {
-		
-		return "imformation";
-	}
+//	@RequestMapping("/imformation.do")
+//	public String imformation() {
+//		
+//		return "imformation";
+//	}
 	
 }

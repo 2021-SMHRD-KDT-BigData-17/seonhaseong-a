@@ -32,6 +32,6 @@ public class userImformation {
 		// boardAjaxMain.do요청으로 가야함
 		// 다른 컨트롤러 요청으로 갈때도 redirect:로 이동
 
-		return "redirect:/boardAjaxMain.do";
+		return "redirect:/imformation.do";
 	}
 }

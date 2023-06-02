@@ -12,7 +12,7 @@
 //import kr.smhrd.PMnt.mapper.LoginMapper;
 
 //public class userImformation {
-//
+
 //	@Autowired // 의존성 주입
 //	private LoginMapper mapper;
 //

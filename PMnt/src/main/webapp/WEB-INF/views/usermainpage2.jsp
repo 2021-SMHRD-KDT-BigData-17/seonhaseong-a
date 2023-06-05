@@ -7,10 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div>
-	<header>안녕</header>
-		<form action="/main.do" method="post"></form>
-			
-	</div>
+	<h1>로그인 실패!!</h1>
 </body>
 </html>

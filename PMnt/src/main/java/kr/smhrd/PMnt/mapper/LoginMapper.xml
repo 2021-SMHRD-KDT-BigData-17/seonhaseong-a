@@ -4,10 +4,10 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.smhrd.PMnt.mapper.LoginMapper">
     
-    <!-- 로그인한 회원 정보 -->
-   	<select id="getLogin" resultType="kr.smhrd.PMnt.entity.ProUser">
-	    select * from pro_user where user_bno = #{userBno}	    
-	   
+    <!-- 로그인 -->
+   	<select id="loginuser" resultType="kr.smhrd.PMnt.entity.ProUser">
+	    <!-- select * from pro_user where user_bno = #{userBno} -->	    
+		select * from pro_user where userbno = #{userbno} and userpw = #{userpw}	   
 	</select>
 	
     <!-- 회원가입 -->

@@ -1,8 +1,10 @@
 package kr.smhrd.PMnt.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,59 +12,50 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.smhrd.PMnt.entity.ProUser;
-import kr.smhrd.PMnt.service.UserService;
+import kr.smhrd.PMnt.mapper.LoginMapper;
 
 @Controller
-@RequestMapping("/login.do")
 public class UserController {
-    private final UserService userService;
+	
+	@Autowired // 의존성 주입
+	private LoginMapper mapper;
 
-    @Inject
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
-
-    // 로그인 페이지
-    @GetMapping("/login.do")
-    public String toLoginPage(HttpSession session) {
-        String id = (String) session.getAttribute("userid");
-        if (id != null) { // 로그인 됨
-            return "redirect:/main.do";
-        }
-        return "login.do"; // 로그인 안됨
-    }
-
-    // 로그인
-    @PostMapping("/login.do")
-    public String login(String userBno, String userPw, HttpSession session) {
-        String id = userService.login(userBno, userPw);
-        if (id == null) { // 로그인 실패
-            return "redirect:/login.do";
-        }
-        session.setAttribute("userid", id);
-        return "redirect:/main.do";
-    }
-    
-    //회원가입페이지
-    @GetMapping("/signup.do")
-    public String toSignupPage() {return "/signup.do";}
-    
-    //회원가입
-    @PostMapping("/signup.do")
-    public String signup(ProUser proUser) {
-    	try {
-    		userService.signup(proUser);
-    	}catch(DuplicateKeyException e) {
-    		return "redirect:/signup.do?error_code=-1";
-    	}catch(Exception e) {
-    		e.printStackTrace();
-    		return "redirect://signup.do?error_code=-99";
-    	}
-		return "redirect:/login.do";
- 
-    }
-    
-}
+	@Autowired
+	private HttpServletRequest request;
 
 	
+	@RequestMapping("/login.do")
+	public String login1() {
+		return "loginpage";
+	}
+	
+	
+	@PostMapping("/loginu.do")
+	public String Login(ProUser user, HttpServletRequest request) {
+		
+		ProUser loginuser = mapper.loginuser(user);
+		
+		if(loginuser != null) {
+			// 세션 객체 생성
+			HttpSession session = request.getSession();
+			// 세션에 로그인 정보 저장(setAtteibute())
+			session.setAttribute("loginuser", loginuser);
+			System.out.println(loginuser);
+			return "redirect:/main.do";
+		}else {
+			System.out.println(loginuser);
+			return "redirect:/loginfalse.do";
+		}
+	}
+	
+	@RequestMapping("/main.do")
+	public String mainpage() {
+		return "main";
+	}
+	
+	@RequestMapping("/loginfalse.do")
+	public String loginfalse() {
+		return "loginpage";
+	}
 
+}

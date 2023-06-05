@@ -1,17 +1,15 @@
 package kr.smhrd.PMnt.mapper;
 
 
+import org.apache.ibatis.annotations.Mapper;
+
 import kr.smhrd.PMnt.entity.ProUser;
 
+@Mapper
 public interface LoginMapper {
 
-	
-	//회원가입 
-	void getSign(ProUser proUser);
-	
-
-	//로그인 - 회원정보
-	ProUser getLogin(String userBno);
+	// 로그인
+	public ProUser loginuser(ProUser user);
 	 
 
 		

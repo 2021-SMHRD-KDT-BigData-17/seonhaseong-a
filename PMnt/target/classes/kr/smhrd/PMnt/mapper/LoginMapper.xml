@@ -10,9 +10,11 @@
 		select * from pro_user where userbno = #{userbno} and userpw = #{userpw}	   
 	</select>
 	
-    <!-- 회원가입 -->
-    <select id="getSign" resultType="kr.smhrd.PMnt.entity.ProUser" >
-        select * from pro_user where user_bno = #{userBno}
-    </select>
+   <!-- 회원가입 -->
+<insert id="signup" parameterType="kr.smhrd.PMnt.entity.ProUser">
+    INSERT INTO pro_user (userbno, userpw, username, usercompany, useraddr, useremail)
+    VALUES (#{userbno}, #{userpw}, #{username}, #{usercompany}, #{useraddr}, #{useremail})
+</insert>
+
     
 </mapper>

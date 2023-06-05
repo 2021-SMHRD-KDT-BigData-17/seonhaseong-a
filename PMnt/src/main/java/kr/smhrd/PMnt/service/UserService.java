@@ -1,5 +1,7 @@
 //package kr.smhrd.PMnt.service;
 //
+//
+//import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.stereotype.Service;
 //
 //import kr.smhrd.PMnt.entity.ProUser;
@@ -7,41 +9,42 @@
 //@Service
 //public class UserService {
 //  
-//  private final LoginMapper loginMapper;
+//	@Autowired(required=false)
+//	private final LoginMapper loginMapper;
 //
 //    public UserService(LoginMapper loginMapper) {
 //        this.loginMapper = loginMapper;
 //    }
-//	    
-//	public String login(String userBno, String userPw) {
-//		ProUser proUser = loginMapper.getLogin(userBno);
-//		if(proUser.getUserPw().equals(userPw)) 
-//			return proUser.getUserPw();
+//	   
+//	public String login(String userbno, String userpw) {
+//		ProUser user = loginMapper.loginuser(userbno);
+//		if(user.getUserpw().equals(userpw)) 
+//			return user.getUserpw();
 //		return null;	
 //		}
 //		
 //		
 //	
 //    
-//     회원가입
+//     //회원가입
 //    public void signup(ProUser proUser) {
 //        loginMapper.getSign(proUser);
 //    }
 //}
-//
-//
-//	
-//
-//
-//
-//	
-//	
-//
-//	
-//
-//	
-//
-//	
-//
-//	
-//
+
+
+	
+
+
+
+	
+	
+
+	
+
+	
+
+	
+
+	
+

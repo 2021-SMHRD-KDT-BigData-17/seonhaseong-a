@@ -10,6 +10,10 @@ public interface LoginMapper {
 
 	// 로그인
 	public ProUser loginuser(ProUser user);
+
+	//회원가입
+	
+	public void signup(ProUser user);
 	 
 
 		

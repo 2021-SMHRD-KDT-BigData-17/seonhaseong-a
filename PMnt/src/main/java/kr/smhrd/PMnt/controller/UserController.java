@@ -1,11 +1,11 @@
 package kr.smhrd.PMnt.controller;
 
-import javax.inject.Inject;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DuplicateKeyException;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,45 +17,54 @@ import kr.smhrd.PMnt.mapper.LoginMapper;
 @Controller
 public class UserController {
 	
-	@Autowired // 의존성 주입
-	private LoginMapper mapper;
+	
 
-	@Autowired
-	private HttpServletRequest request;
+	    @Autowired
+	    private LoginMapper mapper;
 
-	
-	@RequestMapping("/login.do")
-	public String login1() {
-		return "loginpage";
-	}
-	
-	
-	@PostMapping("/loginu.do")
-	public String Login(ProUser user, HttpServletRequest request) {
-		
-		ProUser loginuser = mapper.loginuser(user);
-		
-		if(loginuser != null) {
-			// 세션 객체 생성
-			HttpSession session = request.getSession();
-			// 세션에 로그인 정보 저장(setAtteibute())
-			session.setAttribute("loginuser", loginuser);
-			System.out.println(loginuser);
-			return "redirect:/main.do";
-		}else {
-			System.out.println(loginuser);
-			return "redirect:/loginfalse.do";
-		}
-	}
-	
-	@RequestMapping("/main.do")
-	public String mainpage() {
-		return "main";
-	}
-	
-	@RequestMapping("/loginfalse.do")
-	public String loginfalse() {
-		return "loginpage";
-	}
+	    @Autowired
+	    private HttpServletRequest request;
 
+	    @RequestMapping("/login.do")
+	    public String loginPage() {
+	        return "loginpage";
+	    }
+
+	    @PostMapping("/loginu.do")
+	    public String login(ProUser user) {
+	        ProUser loginuser = mapper.loginuser(user);
+
+	        if (loginuser != null) {
+	            HttpSession session = request.getSession();
+	            session.setAttribute("loginuser", loginuser);
+	            return "redirect:/main.do";
+	        } else {
+	            return "redirect:/loginfalse.do";
+	        }
+	    }
+
+	    @GetMapping("/signup.do")
+	    public String showSignupForm() {
+	        return "signup";
+	    }
+
+	    @PostMapping("/signup.do")
+	    public String processSignupForm(ProUser user) {
+	        mapper.signup(user);
+	        return "redirect:/login.do";
+	    }
+
+	    @RequestMapping("/main.do")
+	    public String mainPage() {
+	        return "main";
+	    }
+
+	    @RequestMapping("/loginfalse.do")
+	    public String loginFalse() {
+	        return "loginpage";
+	    }
 }
+
+
+    
+

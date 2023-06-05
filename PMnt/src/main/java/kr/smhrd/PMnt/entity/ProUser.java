@@ -2,79 +2,55 @@ package kr.smhrd.PMnt.entity;
 
 public class ProUser {
 
-	private String userBno;
-	private String userPw;
-	private String userName;
-	private String userEmail;
-	private String userAddr;
-	private String userCompany;
-
+	private String userbno;
+	private String userpw;
+	private String username;
+	private String useremail;
+	private String useraddr;
+	private String usercompany;
 	
-	public String getUserBno() {
-		return userBno;
+	public String getUserbno() {
+		return userbno;
 	}
-
-
-	public void setUserBno(String userBno) {
-		this.userBno = userBno;
+	public void setUserbno(String userbno) {
+		this.userbno = userbno;
 	}
-
-
-	public String getUserPw() {
-		return userPw;
+	public String getUserpw() {
+		return userpw;
 	}
-
-
-	public void setUserPw(String userPw) {
-		this.userPw = userPw;
+	public void setUserpw(String userpw) {
+		this.userpw = userpw;
 	}
-
-
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
-
-
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-
-
-	public String getUserEmail() {
-		return userEmail;
+	public String getUseremail() {
+		return useremail;
 	}
-
-
-	public void setUserEmail(String userEmail) {
-		this.userEmail = userEmail;
+	public void setUseremail(String useremail) {
+		this.useremail = useremail;
 	}
-
-
-	public String getUserAddr() {
-		return userAddr;
+	public String getUseraddr() {
+		return useraddr;
 	}
-
-
-	public void setUserAddr(String userAddr) {
-		this.userAddr = userAddr;
+	public void setUseraddr(String useraddr) {
+		this.useraddr = useraddr;
 	}
-
-
-	public String getUserCompany() {
-		return userCompany;
+	public String getUsercompany() {
+		return usercompany;
 	}
-
-
-	public void setUserCompany(String userCompany) {
-		this.userCompany = userCompany;
+	public void setUsercompany(String usercompany) {
+		this.usercompany = usercompany;
 	}
-
+	
 	@Override
 	public String toString() {
-		return "ProUser [userBno=" + userBno + ", userPw=" + userPw + ", userName=" + userName + ", userEmail="
-				+ userEmail + ", userAddr=" + userAddr + ", userCompany=" + userCompany + "]";
+		return "ProUser [userbno=" + userbno + ", userpw=" + userpw + ", username=" + username + ", useremail="
+				+ useremail + ", useraddr=" + useraddr + ", usercompany=" + usercompany + "]";
 	}
-	
 	
 	
 }

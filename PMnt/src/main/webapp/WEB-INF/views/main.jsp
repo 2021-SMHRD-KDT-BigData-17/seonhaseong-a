@@ -20,6 +20,41 @@ ProUser user = (ProUser) session.getAttribute("loginuser");
 </head>
 
 <body>
+<script>
+	$(document).ready(function(){
+		// productlist() 함수 호출
+		productlist();
+		
+	}); // 제일 먼저 실행되는 함수
+	
+	function productlist(){
+		
+		// ajax통신으로 요청 주고 받기
+		
+		$.ajax({
+			url : "${cpath}/product.do",
+			type : "get",
+			// data : 보내줄 데이터 없음
+			dataType : "json",
+			success : trueproduct,
+			error : function(){
+				alert("akax통신 실패!!");
+			
+			} //function() 함수 끝
+			
+		}); // productlist() 함수 끝
+		
+		// 리스트를 가지고 오는 function문
+		function trueproduct(data){
+			console.log(data);
+			
+			var prolist = ''
+		}
+		
+		
+	}
+	
+</script>
     <!-- =============== Navigation ================ -->
     <div class="container">
         <input type="radio" id="tab-1" name="show" checked/>
@@ -377,7 +412,7 @@ ProUser user = (ProUser) session.getAttribute("loginuser");
     </script>
     <!-- =========== Scripts =========  -->
     <script src="resources/js/main.js"></script>
-    <script src="resources/js/loginpage.js"></script>
+    <!-- <script src="resources/js/loginpage.js"></script> -->
 
     <!-- ======= Charts JS ====== -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>

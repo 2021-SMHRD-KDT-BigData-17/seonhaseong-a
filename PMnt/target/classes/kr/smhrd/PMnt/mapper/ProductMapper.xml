@@ -23,7 +23,7 @@
 		insert into pro_product (pnum, pname, preceivingquantity, pshipments, preceivingdate, pshippingdate, pexpirationdate, preceivingamount, pshippingamount, pincome, premarks, userbno)
 		select pnum, #{pname},#{preceivingquantity},#{pshipments},#{preceivingdate},#{pshippingdate},pexpirationdate,#{preceivingamount},#{pshippingamount},#{pincome},#{premarks},#{userbno}
 		from pro_productinfo
-		where pname = #{pname}, pexpirationdate = #{pexpirationdate}
+		where pname = #{pname}
 		limit 1;
 	</insert>
 	

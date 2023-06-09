@@ -274,7 +274,7 @@ application.setAttribute("user", user);
                                 <th>출고량</th>
                                 <th>입고일</th>
                                 <th>출고일</th>
-                                <th>소비기한</th>
+                                <!-- <th>소비기한</th> -->
                                 <th>입고금액</th>
                                 <th>출고금액</th>
                                 <th>수입</th>
@@ -293,7 +293,7 @@ application.setAttribute("user", user);
 					                            <td><input type="text" placeholder="출고량" id="pshipments" name ="pshipments"></td>
 					                            <td><input type="date" placeholder="입고일" id="preceivingdate" name ="preceivingdate"></td>
 					                            <td><input type="date" placeholder="출고일" id="pshippingdate" name ="pshippingdate"></td>
-					                            <td><input type="text" placeholder="소비기한" id="pexpirationdate" name="pexpirationdate"></td>
+					                            <!-- <td><input type="text" placeholder="소비기한" id="pexpirationdate" name="pexpirationdate"></td> -->
 					                            <td><input type="text" placeholder="입고금액" id="preceivingamount" name="preceivingamount"></td>
 					                            <td><input type="text" placeholder="출고금액" id="pshippingamount" name="pshippingamount"></td>
 					                            <td><input type="text" placeholder="수입" id="pincome" name="pincome"></td>

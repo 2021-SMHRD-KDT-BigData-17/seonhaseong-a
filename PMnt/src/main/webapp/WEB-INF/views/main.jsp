@@ -387,7 +387,7 @@ application.setAttribute("user", user);
                 <!-- 텍스트 박스 -->
                 <div class="box">
                     <div class="textbox">
-                        <textarea rows="10" class="text"></textarea>
+                        <div class="text"></div>
                     </div>
                 </div>   
             </div>

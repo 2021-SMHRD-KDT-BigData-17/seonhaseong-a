@@ -1,4 +1,7 @@
+<%@page import="kr.smhrd.PMnt.mapper.*"%>
+<%@page import="kr.smhrd.PMnt.entity.ProProduct"%>
 <%@page import="kr.smhrd.PMnt.entity.ProUser"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -6,10 +9,19 @@
 <c:set var="cpath" value = "${pageContext.request.contextPath}"></c:set>
 <%
 ProUser user = (ProUser) session.getAttribute("loginuser");
+
+// 동일한 요청에 의해 실행되는 페이지 간에 정보를 유지하기 위해 HttServletRequest객체에 등록 합니다.
+request.setAttribute("user", user);
+// 클라이언트 단위로 정보를 유지하고자 할때 HttpSession 객체에 등록합니다.
+session.setAttribute("user", user);
+// 웹 애플리케이션 단위로 정보를 유지하고자 할 때 ServletContest 객체에 등록합니다.
+application.setAttribute("user", user);
+
 %>
-    
 <!DOCTYPE html>
 <html lang="en">
+<script src="https://kit.fontawesome.com/369266d994.js"
+	crossorigin="anonymous"></script>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,17 +29,24 @@ ProUser user = (ProUser) session.getAttribute("loginuser");
     <title>Responsive Admin Dashboard | Korsat X Parmaga</title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="resources/css/style.css">
+    <!-- ======= jquery ====== -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<!-- ======= bootstrap ====== -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-<script>
+
+<%-- <script>
+
+	
 	$(document).ready(function(){
 		// productlist() 함수 호출
-		productlist();
+		trueproductlist();
 		
 	}); // 제일 먼저 실행되는 함수
 	
-	function productlist(){
+	function trueproductlist(){
 		
 		// ajax통신으로 요청 주고 받기
 		
@@ -45,16 +64,63 @@ ProUser user = (ProUser) session.getAttribute("loginuser");
 		}); // productlist() 함수 끝
 		
 		// 리스트를 가지고 오는 function문
-		function trueproduct(data){
+/* 		function trueproduct(data){
 			console.log(data);
 			
 			var prolist = ''
 		}
 		
 		
-	}
+	} */
 	
-</script>
+	function productlist(data){
+		console.log(data);
+		
+		var prolist = '<table id="pro_product">';
+		prolist += '<thead>';
+		prolist += '<tr>';
+		prolist += '<th>제품 번호</th>';
+		prolist += '<th>제품 이름</th>';
+		prolist += '<th>입고량</th>';
+		prolist += '<th>출고량</th>';
+		prolist += '<th>입고일</th>';
+		prolist += '<th>출고일</th>';
+		prolist += '<th>소비기한</th>';
+		prolist += '<th>입고금액</th>';
+		prolist += '<th>출고금액</th>';
+		prolist += '<th>수입</th>';
+		prolist += '<th>비고</th>';
+		prolist += '<th>삭제</th>';
+		prolist += '</tr>';
+		
+		$.each(data,(index,product)=>{
+			if(<%= user.getUserbno() %> == product.userbno){
+			
+			prolist += '<tr>';
+			prolist += '<td>' +product.pnum +'</td>'; // 제품번호
+			prolist += '<td>' +product.pname +'</td>'; // 제품이름
+			prolist += '<td>' +product.preceivingquantity +'</td>'; // 입고량
+			prolist += '<td>' +product.pshipments +'</td>'; // 출고량
+			prolist += '<td>' +product.preceivingdate +'</td>'; // 입고일
+			prolist += '<td>' +product.pshippingdate +'</td>'; // 출고일
+			prolist += '<td>' +product.pexpirationdate +'</td>'; // 소비기한
+			prolist += '<td>' +product.preceivingamount +'</td>'; // 입고금액
+			prolist += '<td>' +product.pshippingamount +'</td>'; // 출고금액
+			prolist += '<td>' +product.pincome +'</td>'; // 수입
+			prolist += '<td>' +product.premarks +'</td>'; // 비고
+			/* prolist += '<td>' +$("<a>").prop("href", "#").addClass("delete-link").append("삭제") +'</td>'; // 비고 */
+			
+			prolist += '<tr>'
+			} // if문 끝
+			
+		}); // each() 끝
+		 	prolist += '</thead>';
+		    prolist += '<tbody></tbody>';
+		    prolist += '</table>';
+		    $('.quote').html(prolist);
+		} //trueproduct 끝
+	
+</script> --%>
     <!-- =============== Navigation ================ -->
     <div class="container">
         <input type="radio" id="tab-1" name="show" checked/>
@@ -104,23 +170,23 @@ ProUser user = (ProUser) session.getAttribute("loginuser");
                     
                    
                 
-                <li>
+                <!-- <li>
                     <a href="/loginpage.html">
                         <span class="icon">
                             <ion-icon name="log-in-outline"></ion-icon>
                         </span>
                         <span class="title">로그인</span>
                     </a>
-                </li>
+                </li> -->
 
              
                 <!-- ===================로그인시 바뀔곳============== -->
-                <!-- <li>
-                    <label for="tab-4">
+                <li>
+                    <label for="tab-3">
                         <span class="icon">
                             <ion-icon name="settings-outline"></ion-icon>
                         </span>
-                        <span class="title">회원정보 수정</span>
+                        <span class="title">회원정보 수정 </span>
                     </label>
                 </li>
 
@@ -129,16 +195,18 @@ ProUser user = (ProUser) session.getAttribute("loginuser");
                         <span class="icon">
                             <ion-icon name="log-out-outline"></ion-icon>
                         </span>
-                        <span class="title">로그아웃</span>
+                        <%-- <a class="title"href="<c:url value='/logout.do'/>" >로그아웃</a> --%>
+                        <a class="title" href="${cpath}/logout.do">로그아웃</a>
+                        <!-- <span class="title">로그아웃</span> -->
                     </label>
-                </li> -->
+                </li>
 
 
             </ul>
         </div>
 <!-- =======================메인콘텐츠=============================== -->
         <!-- ========================= 재고현황 ==================== -->
-         <div class="topmian">
+         <div class="topmian"><!--1번div-->
             <div class="topbar">
                 <div class="toggle">
                     <ion-icon name="menu-outline"></ion-icon>
@@ -166,7 +234,32 @@ ProUser user = (ProUser) session.getAttribute("loginuser");
                             </tr>
                         </thead>
                         <tbody id="pro_product_body">
-                            
+								<!-- session에 담긴 userbno값 불러오기 확인용  -->                        		
+                        		<%-- <span>${user.userbno}</span>  --%>
+                        	<c:forEach items="${list}" var = "productl">
+                        		<%-- <span>${sessionScope}</span> 세션의 값 확인용--%> 
+                        		<!-- 참고용 -->
+                        		<!-- session에 담긴 userbno값과 list에 있는 userbno의 값이 같은 것만 list에 출력해주는 방식으로 출력해준다 -->
+								<c:if test="${productl.userbno == user.userbno}">
+	                        		<tr>
+	                        			<td>${productl.pnum}</td> <!-- 제품번호 -->
+	                        			<td>${productl.pname}</td> <!-- 제품이름 -->
+	                        			<td>${productl.preceivingquantity}</td> <!-- 입고량 -->
+	                        			<td>${productl.pshipments}</td> <!-- 출고량 -->
+	                        			<td>${productl.preceivingdate}</td> <!-- 입고일 --> 
+	                        			<td>${productl.pshippingdate}</td> <!-- 출고일 -->
+	                        			<td>${productl.pexpirationdate}</td> <!-- 소비기한 -->
+	                        			<td>${productl.preceivingamount}</td> <!-- 입고금액 -->
+	                        			<td>${productl.pshippingamount}</td> <!-- 출고금액 -->
+	                        			<td>${productl.pincome}</td> <!-- 수입 -->
+	                        			<td>${productl.premarks}</td> <!-- 비고 -->
+										<td><a href="${cpath}/logout.do">삭제</a></td> <!-- 썩을 것들 문제 개 많네 -->
+	                        		</tr>
+                        		</c:if>
+	                        		<!-- <script type="text/javascript">
+										alert("준비중입니다.");
+									</script> -->
+                        	</c:forEach>
                         </tbody>
                     </table>
                 </div>
@@ -175,7 +268,7 @@ ProUser user = (ProUser) session.getAttribute("loginuser");
                     <table id="pro_product_plus">
                         <thead>
                             <tr>
-                                <th>제품 번호</th>
+                                <!-- <th>제품 번호</th> -->
                                 <th>제품 이름</th>
                                 <th>입고량</th>
                                 <th>출고량</th>
@@ -189,25 +282,34 @@ ProUser user = (ProUser) session.getAttribute("loginuser");
                                 <th>추가</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <td><input type="text" placeholder="제품번호" id="p_num"></td>
-                            <td><input type="text" placeholder="제품 이름" id="p_name"> </td>
-                            <td><input type="text" placeholder="입고량" id="p_receivingquantity"></td>
-                            <td><input type="text" placeholder="출고량" id="p_shipments"></td>
-                            <td><input type="date" placeholder="입고일" id="p_receivingdate"></td>
-                            <td><input type="date" placeholder="출고일" id="p_shippingdate"></td>
-                            <td><input type="text" placeholder="소비기한" id="p_expirationdate"></td>
-                            <td><input type="text" placeholder="입고금액" id="p_receivingamount"></td>
-                            <td><input type="text" placeholder="출고금액" id="p_shippingamount"></td>
-                            <td><input type="text" placeholder="수입" id="p_income"></td>
-                            <td><input type="text" placeholder="비고" id="p_remarks"></td>
-                            <td><button type="button" id="append_row">제품추가</button></td>
-                        </tbody>
-                    </table>
+	                        <%-- <c:choose>
+	            				<c:when test="${empty productInsert}" value = ""> --%>
+		                    		<form action ="${cpath}/productInsert.do" method="post">
+				                        <tbody>
+				                        	<tr>
+					                            <!-- <td><input type="text" placeholder="제품번호" id="pnum" name="pnum"></td> -->
+					                            <td><input type="text" placeholder="제품 이름" id="pname" name = "pname"> </td>
+					                            <td><input type="text" placeholder="입고량" id="preceivingquantity" name ="preceivingquantity"></td>
+					                            <td><input type="text" placeholder="출고량" id="pshipments" name ="pshipments"></td>
+					                            <td><input type="date" placeholder="입고일" id="preceivingdate" name ="preceivingdate"></td>
+					                            <td><input type="date" placeholder="출고일" id="pshippingdate" name ="pshippingdate"></td>
+					                            <td><input type="text" placeholder="소비기한" id="pexpirationdate" name="pexpirationdate"></td>
+					                            <td><input type="text" placeholder="입고금액" id="preceivingamount" name="preceivingamount"></td>
+					                            <td><input type="text" placeholder="출고금액" id="pshippingamount" name="pshippingamount"></td>
+					                            <td><input type="text" placeholder="수입" id="pincome" name="pincome"></td>
+					                            <td><input type="text" placeholder="비고" id="premarks" name="premarks"></td>
+					                            <input type="hidden" id="userbno" name="userbno" value = "<%=user.getUserbno() %>">
+					                            <td><button type="submit" id="append_row">제품추가</button></td>
+					                           </tr>
+				                        </tbody>
+		                    		</form>
+		                    <%-- 	</c:when>
+		                    </c:choose> --%>
+                    	</table>
                 </div>
             </div>
             <!-- =================상품예측=============== -->
-            <div class="maincon">
+            <div class="maincon"><!--2번div-->
                 <div class="menuu">
                     <div class="menu">
                         <div class="card">
@@ -262,47 +364,17 @@ ProUser user = (ProUser) session.getAttribute("loginuser");
                     </div>
                 </div>    
             </div>
-            <!-- ================ 로그인회원가입 ================= -->
-            <div class="maincon">
-                <div class="wrapper">
-                    <div class="log">
-                        <div class="login">
-                            <header>로그인</header>
-                            <form action="#" class="loginform">
-                                    <input class="user" type="text" placeholder="사업자 등록번호를 입력해 주세요" required />
-                                    <input class="user" type="password" placeholder="비밀번호를 입력해 주세요" required />
-                                    <a class="find" href="#">비밀번호 찾기</a>
-                                    <div class="input_field">
-                                        <input type="submit" value="로그인" class="btn">
-                                    </div>
-                            </form>
-                        </div>
-                        <div class="sign">
-                            <header>회원 가입</header>
-                            <form action="#" class="signform">
-                                    <input class="user" type="text" placeholder="사업자 등록번호를 입력해 주세요" required />
-                                    <input class="user" type="password" placeholder="비밀번호를 입력해 주세요" required />
-                                    <input class="user" type="text" placeholder="이름을 입력해주세요" required />
-                                    <input class="user" type="text" placeholder="회사명을 입력해주세요" required />
-                                    <input class="user" type="text" placeholder="사업장 주소 입력해 주세요" required />
-                                    <input class="user" type="text" placeholder="E-mail을 입력해 주세요" required />
-                                    <div class="input_field">
-                                        <input  type="submit" value="등록" class="btn">
-                                        <span>&nbsp;&nbsp;</span>
-                                        <input  type="button" value="취소" class="btn">
-                                    </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+            <!-- ================ 회원수정 ================= -->
+            <div class="maincon"><!--4번div-->
+                
             </div>
         </div>
     </div>
 <!-- ====================테이블추가/삭제==================== -->
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 
-    // 추가
+     // 추가
     
     $("#append_row").on("click", function() {
     
@@ -364,7 +436,7 @@ ProUser user = (ProUser) session.getAttribute("loginuser");
     
     });
     
-    </script>
+    </script> -->
     <!-- =============================수정=================== -->
     <script>
         $(document).ready(function() {
@@ -412,12 +484,10 @@ ProUser user = (ProUser) session.getAttribute("loginuser");
     </script>
     <!-- =========== Scripts =========  -->
     <script src="resources/js/main.js"></script>
-    <!-- <script src="resources/js/loginpage.js"></script> -->
-
+    <script src="resources/js/loginpage.js"></script>
     <!-- ======= Charts JS ====== -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
     <script src="resources/js/chartsJS.js"></script>
-
     <!-- ====== ionicons ======= -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

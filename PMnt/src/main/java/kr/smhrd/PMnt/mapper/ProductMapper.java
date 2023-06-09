@@ -10,6 +10,9 @@ import kr.smhrd.PMnt.entity.ProProduct;
 @Mapper
 public interface ProductMapper {
 
-	public List<ProProduct> productlist();
+	// 재고관리 리스트 mapper
+	public List<ProProduct> productList();
+	
+	public void productInsert(ProProduct product);
 	
 }

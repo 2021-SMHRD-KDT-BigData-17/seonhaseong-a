@@ -1,7 +1,8 @@
 package kr.smhrd.PMnt.entity;
 
 public class ProProduct {
-
+	
+	private int pseq;
 	private String pnum; // 제품번호
 	private String pname; // 제품 이름
 	private int preceivingquantity; // 입고량
@@ -14,6 +15,14 @@ public class ProProduct {
 	private int pincome; // 수입
 	private String premarks; // 비고
 	private int userbno; // 사용자 사업자 등록번호(아이디), 등록번호(아이디)
+	
+	
+	public int getPseq() {
+		return pseq;
+	}
+	public void setPseq(int pseq) {
+		this.pseq = pseq;
+	}
 	public String getPnum() {
 		return pnum;
 	}
@@ -88,12 +97,13 @@ public class ProProduct {
 	}
 	@Override
 	public String toString() {
-		return "ProProduct [pnum=" + pnum + ", pname=" + pname + ", preceivingquantity=" + preceivingquantity
-				+ ", pshipments=" + pshipments + ", preceivingdate=" + preceivingdate + ", pshippingdate="
-				+ pshippingdate + ", pexpirationdate=" + pexpirationdate + ", preceivingamount=" + preceivingamount
-				+ ", pshippingamount=" + pshippingamount + ", pincome=" + pincome + ", premarks=" + premarks
-				+ ", userbno=" + userbno + "]";
+		return "ProProduct [pseq=" + pseq + ", pnum=" + pnum + ", pname=" + pname + ", preceivingquantity="
+				+ preceivingquantity + ", pshipments=" + pshipments + ", preceivingdate=" + preceivingdate
+				+ ", pshippingdate=" + pshippingdate + ", pexpirationdate=" + pexpirationdate + ", preceivingamount="
+				+ preceivingamount + ", pshippingamount=" + pshippingamount + ", pincome=" + pincome + ", premarks="
+				+ premarks + ", userbno=" + userbno + "]";
 	}
+	
 	
 	
 	

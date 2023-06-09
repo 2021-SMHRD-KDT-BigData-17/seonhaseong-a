@@ -9,15 +9,6 @@
        select * from pro_product order by preceivingdate desc
    </select>
 
-
-
-   <!-- 재고추가 sql문 -->
-   <!-- <insert id= "productInsert" parameterType ="kr.smhrd.PMnt.entity.ProProduct">
-       insert into pro_product
-       (pnum,pname,preceivingquantity,pshipments,preceivingdate,pshippingdate,pexpirationdate,preceivingamount,pshippingamount,pincome,premarks,userbno)
-       values (#{pnum},#{pname},#{preceivingquantity},#{pshipments},#{preceivingdate},#{pshippingdate},#{pexpirationdate},#{preceivingamount},#{pshippingamount},#{pincome},#{premarks},#{userbno})
-   </insert> -->
-   
    <!-- 재고관리  pnum 데이터 값 고정하여 넣는 sql문 -->
    <insert id= "productInsert" parameterType ="kr.smhrd.PMnt.entity.ProProduct">
 		insert into pro_product (pnum, pname, preceivingquantity, pshipments, preceivingdate, pshippingdate, pexpirationdate, preceivingamount, pshippingamount, pincome, premarks, userbno)
@@ -27,12 +18,8 @@
 		limit 1;
 	</insert>
 	
-  <!--  <insert id="productInsert" parameterType="kr.smhrd.PMnt.entity.ProProduct">
-    INSERT INTO pro_product (pnum, pname, preceivingquantity, pshipments, preceivingdate, pshippingdate, pexpirationdate, preceivingamount, pshippingamount, pincome, premarks, userbno)
-    SELECT pnum, #{pname}, #{preceivingquantity}, #{pshipments}, #{preceivingdate}, #{pshippingdate}, #{pexpirationdate}, #{preceivingamount}, #{pshippingamount}, #{pincome}, #{premarks}, #{userbno}
-    FROM productinfo
-    WHERE pname = #{pname}
-    LIMIT 1;
-</insert> -->
-    
+	<delete id = "productDelete" parameterType = "kr.smhrd.PMnt.entity.ProProduct">
+       delete from pro_product where pseq=#{pseq}
+   </delete>
+   
 </mapper>

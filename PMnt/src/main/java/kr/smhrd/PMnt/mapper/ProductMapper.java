@@ -13,6 +13,8 @@ public interface ProductMapper {
 	// 재고관리 리스트 mapper
 	public List<ProProduct> productList();
 	
+	// 재고현황 추가 mapper
 	public void productInsert(ProProduct product);
 	
+	public void productDelete(ProProduct product);
 }

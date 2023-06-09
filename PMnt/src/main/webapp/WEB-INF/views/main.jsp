@@ -121,6 +121,20 @@ application.setAttribute("user", user);
 		} //trueproduct 끝
 	
 </script> --%>
+
+<script>
+	function productDel(pseq){
+		
+		$.ajax({
+			url : "${cpath}/productDelete",
+			type : "delete",
+			sucess : true,
+			error : function(){
+				alert("삭제 실패...")
+			}
+		})
+	}
+</script>
     <!-- =============== Navigation ================ -->
     <div class="container">
         <input type="radio" id="tab-1" name="show" checked/>
@@ -247,6 +261,7 @@ application.setAttribute("user", user);
 	                        		<tr>
 	                        			<td>${productl.pnum}</td> <!-- 제품번호 -->
 	                        			<td>${productl.pname}</td> <!-- 제품이름 -->
+	                        			<%-- <td><input type="text" placeholder="${productl.pnum}" id="pname" name = "pname"> </td> --%>
 	                        			<td>${productl.preceivingquantity}</td> <!-- 입고량 -->
 	                        			<td>${productl.pshipments}</td> <!-- 출고량 -->
 	                        			<td>${productl.preceivingdate}</td> <!-- 입고일 --> 
@@ -256,7 +271,10 @@ application.setAttribute("user", user);
 	                        			<td>${productl.pshippingamount}</td> <!-- 출고금액 -->
 	                        			<td>${productl.pincome}</td> <!-- 수입 -->
 	                        			<td>${productl.premarks}</td> <!-- 비고 -->
-										<td><a href="${cpath}/logout.do">삭제</a></td> <!-- 썩을 것들 문제 개 많네 -->
+	                        			<form action = "${cpath}/productDelete.do" method ="post">
+	                        				<input type="hidden" name="pseq" value="${productl.pseq}" />
+											<td><button type = "submit" id="append_row">삭제</button>
+										</form>
 	                        		</tr>
                         		</c:if>
 	                        		<!-- <script type="text/javascript">

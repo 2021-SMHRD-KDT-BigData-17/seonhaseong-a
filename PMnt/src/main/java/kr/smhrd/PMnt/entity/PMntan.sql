@@ -20,3 +20,5 @@ WHERE userbno = '123456';
 
 
 select * from pro_product order by userbno;
+
+SHOW COLUMNS FROM pro_product;

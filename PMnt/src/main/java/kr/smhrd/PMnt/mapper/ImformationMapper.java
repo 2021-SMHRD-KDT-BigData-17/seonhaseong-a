@@ -12,7 +12,7 @@ public interface ImformationMapper {
 	// 회원정보 수정 sql문
 	// 수정 할 것
 	// @Update("update pro_user set content =#{content} where idx=#{idx}")
-	@Update("update pro_user set user_pw=#{userPw},user_name=#{userName},user_email=#{userEmail},user_addr=#{userAddr},user_company=#{userCompany} where user_bno=#{userBno}")
-	public void impormationUpdate(ProUser vo);
+	@Update("update pro_user set userbno=#{userbno},  userpw=#{userpw}, username=#{username},  usercompany=#{usercompany}, useraddr=#{useraddr}, useremail=#{useremail} where userbno=#{userbno}")
+	public void impormationUpdate(ProUser user);
 	
 }

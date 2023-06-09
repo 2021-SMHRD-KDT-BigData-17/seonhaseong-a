@@ -16,7 +16,7 @@
 
 	<body>
 	
-	<script type = "text/javascript">
+<!-- 	<script type = "text/javascript">
 		function insertFn(userBno){
 				
 				// form태그에 있는 정보를 가지고 옴(title, content, writer)
@@ -38,11 +38,11 @@
 					
 				}); // ajax 끝
 		}
-	</script>
+	</script> -->
 	    <div class="container">
 	        <header>마이페이지</header>
 	
-	        <form action="#" >
+	        <form action="/imformation.do" method="post" >
 	            <div class="first">
 	                <div class="command">
 	                    <span class="title">회원정보수정</span>
@@ -59,8 +59,7 @@
 	                            <input id = "imporUpdate" type="submit" value="수정" class="btn">
 	                            <span>&nbsp;&nbsp;</span>
 	                            <input type="reset" value="취소" class="btn">
-	                            <span>&nbsp;&nbsp;</span>
-	                            <input type="submit" value="탈퇴" class="btn">
+	                            
 	                        </div>
 	                    </div>
 	                    

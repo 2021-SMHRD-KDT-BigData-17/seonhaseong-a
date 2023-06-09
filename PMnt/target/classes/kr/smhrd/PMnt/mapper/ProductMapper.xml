@@ -6,7 +6,7 @@
     
     <!-- 재고관리 sql -->
     <select id="productList" resultType="kr.smhrd.PMnt.entity.ProProduct">
-       select * from pro_product order by userbno
+       select * from pro_product order by preceivingdate desc
    </select>
 
 
@@ -21,9 +21,9 @@
    <!-- 재고관리  pnum 데이터 값 고정하여 넣는 sql문 -->
    <insert id= "productInsert" parameterType ="kr.smhrd.PMnt.entity.ProProduct">
 		insert into pro_product (pnum, pname, preceivingquantity, pshipments, preceivingdate, pshippingdate, pexpirationdate, preceivingamount, pshippingamount, pincome, premarks, userbno)
-		select pnum, #{pname},#{preceivingquantity},#{pshipments},#{preceivingdate},#{pshippingdate},#{pexpirationdate},#{preceivingamount},#{pshippingamount},#{pincome},#{premarks},#{userbno}
-		from productinfo
-		where pname = #{pname}
+		select pnum, #{pname},#{preceivingquantity},#{pshipments},#{preceivingdate},#{pshippingdate},pexpirationdate,#{preceivingamount},#{pshippingamount},#{pincome},#{premarks},#{userbno}
+		from pro_productinfo
+		where pname = #{pname}, pexpirationdate = #{pexpirationdate}
 		limit 1;
 	</insert>
 	

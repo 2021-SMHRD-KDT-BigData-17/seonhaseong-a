@@ -619,18 +619,22 @@ body {
   border: 1px solid #666;
 }
 /* 텍스트 박스 */
-.textbox{
+.text{
   position: relative; 
   width: 96%;
   height: 130px;
   padding: 10px;
-  margin-left: 25px;
+  margin-left: 20px;
   display: grid;
   background-color: rgb(255, 255, 255);
-  box-shadow: rgba(0, 0, 0, 0.08) 0px 7px 25px;
-  border-radius: 10px;
-  border: 1px solid rgb(102, 102, 102);
-  
+  border: solid 2px #666;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 15px;
+  resize: none;
+}
+.text:focus {
+  outline-color: var(--main);
 }
 /* ================== Order Details List ============== */
 /* .details {

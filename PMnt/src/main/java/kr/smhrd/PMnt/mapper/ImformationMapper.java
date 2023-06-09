@@ -8,9 +8,7 @@ import kr.smhrd.PMnt.entity.ProUser;
 @Mapper
 public interface ImformationMapper {
 
-	
 
-	
 
 	public void imformation(ProUser user);
 

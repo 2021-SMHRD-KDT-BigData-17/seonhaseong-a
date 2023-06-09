@@ -16,8 +16,8 @@
 
 	<body>
 	
-<!-- 	<script type = "text/javascript">
-		function insertFn(userBno){
+<!--  	<script type = "text/javascript">
+		function insertFn(userbno){
 				
 				// form태그에 있는 정보를 가지고 옴(title, content, writer)
 				// var title = $("#title").val(); 반복하기 힘들기 때문에....
@@ -38,23 +38,23 @@
 					
 				}); // ajax 끝
 		}
-	</script> -->
+	</script>  -->
 	    <div class="container">
 	        <header>마이페이지</header>
-	
-	        <form action="/imformation.do" method="post" >
+	<c:if test="${loginuser != null}">
+	        <form action="${cpath}/imformation.do" method="post" >
 	            <div class="first">
 	                <div class="command">
 	                    <span class="title">회원정보수정</span>
 	
 	                    <div class="fields">
-	                        <input type="text" name = "userBno" placeholder="사업자 등록번호를 입력해 주세요" required />
-	                        <input type="password" name="userPw" placeholder="변경할 비밀번호를 입력해 주세요" required />
+	                        <input type="text" name = "userbno" value="${loginuser.userbno}"  placeholder="사업자 등록번호를 입력해 주세요" required />
+	                        <input type="password" name="userpw" placeholder="변경할 비밀번호를 입력해 주세요" required />
 	                        <!-- <input type="password" placeholder="비밀번호를 다시 한번 입력해주세요" required /> -->
-	                        <input type="text" name ="userName" placeholder="이름을 입력해주세요" required />
+	                        <input type="text" name ="username" placeholder="이름을 입력해주세요" required />
 	                        <input type="text" name ="usercompany" placeholder="회사명을 입력해주세요" required />
-	                        <input type="text" name = "userAddr" placeholder="사업장 주소 입력해 주세요" required />
-	                        <input type="text" name = "userEmail"placeholder="E-mail을 입력해 주세요" required />
+	                        <input type="text" name = "useraddr" placeholder="사업장 주소 입력해 주세요" required />
+	                        <input type="text" name = "useremail"placeholder="E-mail을 입력해 주세요" required />
 	                        <div class="input_field">
 	                            <input id = "imporUpdate" type="submit" value="수정" class="btn">
 	                            <span>&nbsp;&nbsp;</span>
@@ -67,6 +67,7 @@
 	            </div>
 	      
 	        </form>
+	        </c:if>
 	    </div>
     
 	</body>

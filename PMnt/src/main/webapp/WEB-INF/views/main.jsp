@@ -383,7 +383,13 @@ application.setAttribute("user", user);
                         <div class="chart"> <canvas id="chart-1"></canvas> </div>
                         <div class="chart"> <canvas id="chart-2"></canvas> </div>
                     </div>
-                </div>    
+                </div> 
+                <!-- 텍스트 박스 -->
+                <div class="box">
+                    <div class="textbox">
+                        <div class="text"></div>
+                    </div>
+                </div>   
             </div>
             <!-- ================ 회원수정 ================= -->
             <div class="maincon"><!--4번div-->

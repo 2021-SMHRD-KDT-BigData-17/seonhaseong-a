@@ -14,7 +14,7 @@ public class ProProduct {
 	private int pshippingamount; // 출고금액
 	private int pincome; // 수입
 	private String premarks; // 비고
-	private int userbno; // 사용자 사업자 등록번호(아이디), 등록번호(아이디)
+	private String userbno; // 사용자 사업자 등록번호(아이디), 등록번호(아이디)
 	
 	
 	public int getPseq() {
@@ -89,10 +89,10 @@ public class ProProduct {
 	public void setPremarks(String premarks) {
 		this.premarks = premarks;
 	}
-	public int getUserbno() {
+	public String getUserbno() {
 		return userbno;
 	}
-	public void setUserbno(int userbno) {
+	public void setUserbno(String userbno) {
 		this.userbno = userbno;
 	}
 	@Override

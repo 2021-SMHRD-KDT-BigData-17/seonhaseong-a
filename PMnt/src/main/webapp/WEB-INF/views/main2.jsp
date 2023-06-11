@@ -250,7 +250,6 @@ application.setAttribute("user", user);
                                         	<input type="hidden" name="userbno" value="<%=user.getUserbno()%>"/>
                                         	<button type="submit">검색</button>
                                         <button id="re-btn" type="button">취소</button>
-                                        </form>
                                    
                                     <!-- <input id="check-btn" type="checkbox" />
                                     <label for="check-btn"><img class="sur2"src="/img/op.png" alt=""></label>
@@ -282,10 +281,11 @@ application.setAttribute("user", user);
                         <tbody id="pro_product_body">
 								<!-- session에 담긴 userbno값 불러오기 확인용  -->                        		
                         		<%-- <span>${user.userbno}</span>  --%>
-                        	<c:forEach items="${list}" var = "productl">
+                        	<c:forEach items="${search}" var = "productl">
                         		<%-- <span>${sessionScope}</span> 세션의 값 확인용--%> 
                         		<!-- 참고용 -->
                         		<!-- session에 담긴 userbno값과 list에 있는 userbno의 값이 같은 것만 list에 출력해주는 방식으로 출력해준다 -->
+									
 									<c:if test="${productl.userbno == user.userbno}">
 	                        		<tr>
 	                        			<td>${productl.pnum}</td> <!-- 제품번호 -->
@@ -305,11 +305,12 @@ application.setAttribute("user", user);
 											<td><button type = "submit" id="append_row">삭제</button></td>
 										</form>
 	                        		</tr>
-                        		</c:if>
+                        			</c:if>
 	                        		<!-- <script type="text/javascript">
 										alert("준비중입니다.");
 									</script> -->
                         	</c:forEach>
+                        	</form>
                         </tbody>
                     </table>
                 </div>

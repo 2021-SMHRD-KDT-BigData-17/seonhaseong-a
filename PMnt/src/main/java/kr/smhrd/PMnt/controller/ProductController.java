@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import kr.smhrd.PMnt.entity.ProProduct;
@@ -35,14 +36,7 @@ public class ProductController {
 //		return list;
 //	}
 
-	// 재고관리 == main.do에 옮겨 주기
-//	@RequestMapping("/product.do")
-//	public String productList(Model model) {
-//		System.out.println("확인용");
-//		List<ProProduct> list = mapper.productList();
-//		model.addAttribute("list", list);
-//		return "main";
-//	}
+
 	
 	@PostMapping("/productInsert.do")
 	public String productInsert(ProProduct product) {
@@ -61,6 +55,37 @@ public class ProductController {
 		System.out.println("삭제");
 		return "redirect:/main.do";
 	}
-
+	
+	// 재고관리 == main.do에 옮겨 주기
+//	@RequestMapping("/product.do")
+//	public String productList(Model model) {
+//		System.out.println("확인용");
+//		List<ProProduct> list = mapper.productList();
+//		model.addAttribute("list", list);
+//		return "main";
+//	}
+	
+	// 재고검색 기능 controller
+	@GetMapping("/productSearch.do")
+	public String productSearch(@RequestParam("pname") String pname, @RequestParam("userbno") String userbno,Model model) {
+		System.out.println("확인용");
+		System.out.println(pname);
+		System.out.println(userbno);
+		ProProduct product = new ProProduct();
+		product.setPname(pname);
+		product.setUserbno(userbno);
+		List<ProProduct> search = mapper.productSearch(product);
+		model.addAttribute("search", search);
+		System.out.println(search);
+		
+		return "main2";
+	}
+	
+//	 @RequestMapping("/main2.do")
+//	    public String mainPage(Model model) {
+//	    	List<ProProduct> list = mapper.productList();
+//			model.addAttribute("list", list);
+//	        return "main2";
+//	    }
 	
 }

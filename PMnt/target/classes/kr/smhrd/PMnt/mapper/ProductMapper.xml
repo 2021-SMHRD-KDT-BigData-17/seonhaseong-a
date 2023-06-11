@@ -18,8 +18,14 @@
 		limit 1;
 	</insert>
 	
+   <!-- 재고관리 삭제 sql문 -->
 	<delete id = "productDelete" parameterType = "kr.smhrd.PMnt.entity.ProProduct">
        delete from pro_product where pseq=#{pseq}
    </delete>
    
+	<!-- 제품명 검색기능 sql문 -->
+	<select id = "productSearch" resultType = "kr.smhrd.PMnt.entity.ProProduct">
+		select * from pro_product where pname = #{pname} and userbno = #{userbno}
+	</select>
+	
 </mapper>

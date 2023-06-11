@@ -17,4 +17,8 @@ public interface ProductMapper {
 	public void productInsert(ProProduct product);
 	
 	public void productDelete(ProProduct product);
+	
+	// 재고관리 검색 기능 mapper
+	public List<ProProduct> productSearch(ProProduct product);
+	
 }

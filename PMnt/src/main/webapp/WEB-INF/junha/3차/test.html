@@ -7,46 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 
-<div style="width: 900px; height: 900px;">
-    <canvas id="myChart"></canvas>
-    <canvas id="chart-2"></canvas>
-    <a href="https://garak.co.kr/price/OZViewer.do" post></a>
-</div>
-
-<script src="/js/test.js">
-    var request = require('request'),
-    cheerio = require('cheerio');
-
-var url = "https://garak.co.kr/price/OZViewer.do";
-
-request(url, function (err, res, html) {
-    if (!err) {
-        var $ = cheerio.load(html);
-        
-        // 블로그 title 정보 가져오기
-        $("#oz_ui_view1").each(function () {
-            var post = {"title": "", "link": "", "summary": "", "category": []};
-            var data = $(this);
-            
-            post["title"] = data.text();
-            post["link"] = data.attr("href");
-        });
-        
-        // 블로그 요약 정보 가져오기
-        $(".entry-summary > p").each(function (i) {
-            // do something
-        })
- 
-        // 블로그 카테고리 가져오기
-        $(".entry-categories").each(function (i) {
-            $(this).children('a').each(function () {
-                // do something
-            });
-        })
-    }
-})
-</script>
+    <button id="day-clik">날짜 선택</button>
+    <input type="date" id="dbox" readonly />
+    
+    <script>
+    document.getElementById("day-clik").addEventListener("click", function() {
+      document.getElementById("dbox").click();
+    });
+    </script>
 </body>
 </html>

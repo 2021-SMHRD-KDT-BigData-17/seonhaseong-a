@@ -17,6 +17,7 @@
   --gray:#f5f5f5;
   --black:#222;
   --black2:#999;
+  /* font-size: calc(16px + (24 - 16)*(100vw - 320px)/(1920 - 320)); */
 }
 /* 화면변경 */
 .container input[type=radio] {
@@ -352,14 +353,14 @@ body {
 
 
 
-
 /* ====================재고현황=========== */
 .quote {
   color: #666;
   font: 14px/24px "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", Sans-Serif;
   margin:20px;
   overflow: auto;
-  height: 500px;
+  height: 450px;
+  border:1px solid black;
 }
 .quote::-webkit-scrollbar {
   width: 10px;
@@ -387,21 +388,26 @@ body {
   width: 100%;
   
 }
+
 .quote th,
 .quote td{
-  padding: 6px 10px;
+  padding: 5px;
+  
 }
+
+
 .quote th {
-  background: #42444e;
+  background: gray;
   color: #fff;
   text-align: left;
+  border: 1px solid black;
 }
-.quote tr:first-child th:first-child {
+/* .quote tr:first-child th:first-child {
   border-top-left-radius: 6px;
 }
 .quote tr:first-child th:last-child {
   border-top-right-radius: 6px;
-}
+} */
 .quote td{
   border-right: 1px solid #c6c9cc;
   border-bottom: 1px solid #c6c9cc;
@@ -412,12 +418,12 @@ body {
 .quote tr:nth-child(even) td{
   background: #eaeaed;
 }
-.quote tr:last-child td:first-child{
+/* .quote tr:last-child td:first-child{
   border-bottom-left-radius: 6px;
 }
 .quote tr:last-child td:last-child{
   border-bottom-right-radius: 6px;
-}
+} */
 
 .input_pro {
   color: #666;
@@ -425,30 +431,28 @@ body {
   margin:20px;
   position: absolute;
   bottom: 100px;
+  
 }
 .input_pro table {
   border-collapse: separate;
   border-spacing: 0;
   width: 100%;
+  border:1px solid
   /* table-layout: fixed; */
 }
 .input_pro th{
-  padding: 6px 15px;
+  border:1px solid black;
+  padding: 6px;
 }
 .input_pro td{
   padding:5px;
 }
 .input_pro th {
-  background: #42444e;
+  background: gray;
   color: #fff;
   text-align: left;
 }
-.input_pro tr:first-child th:first-child {
-  border-top-left-radius: 6px;
-}
-.input_pro tr:first-child th:last-child {
-  border-top-right-radius: 6px;
-}
+
 .input_pro td{
   border-right: 1px solid #c6c9cc;
   border-bottom: 1px solid #c6c9cc;
@@ -459,18 +463,73 @@ body {
 .input_pro tr:nth-child(even) td{
   background: #eaeaed;
 }
-.input_pro tr:last-child td:first-child{
-  border-bottom-left-radius: 6px;
-}
-.input_pro tr:last-child td:last-child{
-  border-bottom-right-radius: 6px;
-}
+
 .input_pro input{
   width: 100%;
 }
 .input_pro button{
   width: 60px;
 }
+
+.btnhome {
+  text-align: right;
+}
+
+.btnhome button {
+  
+  margin-right: 25px;
+}
+/* ==========================재고검색==================== */
+#p-form {
+  display: none;
+}
+#pn{
+  width: 120px;
+}
+
+
+/* #dbox{
+  width: 20px;
+  background-color: gray;
+  outline: none;
+} */
+.input_date_box{
+  width: 130px;
+}
+
+#dbox{
+  position: relative;
+  min-height:30px;
+  border: 1px solid gray;
+  background-color: gray;
+  color: var(--whtie);
+  font-size:15px;
+  /* width: 30px; */
+}
+
+#dbox::-webkit-clear-button,
+#dbox::-webkit-inner-spin-button { 
+    display: none;
+} 
+#dbox::-webkit-calendar-picker-indicator { 
+    background: transparent;
+    z-index: 1;
+} 
+
+.input_date_box input:after{
+  position: absolute;
+  top:50%;
+  right:5px;
+  content: '';
+  width: 20px;
+  height:20px;
+
+  background: gray url('/img/dr.png') center center /contain;
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+
 
 
 /* ==================================예측 상세매뉴====================== */
@@ -479,7 +538,7 @@ body {
   width: 60%;
   padding: 20px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 30px;
   float: left;
 }
@@ -498,9 +557,10 @@ body {
 .menu .card .numbers {
   position: relative;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: var(--black);
   line-height: normal;
+  
 }
 
 .menu .card .cardName {

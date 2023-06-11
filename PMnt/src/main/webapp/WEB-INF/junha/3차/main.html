@@ -8,6 +8,7 @@
     <title>Responsive Admin Dashboard | Korsat X Parmaga</title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
 </head>
 
 <body>
@@ -103,16 +104,44 @@
         </div>
         <div class="main">
             <div class="maincon">
+                <div class="btnhome">
+                    <button class="bt11">수정</button><button class="bt22">초기화</button>
+                </div>
                 <div class="quote">
+                    
                     <table id="pro_product">
+                        
                         <thead>
                             <tr>
                                 <th>제품 번호</th>
-                                <th>제품 이름</th>
+                                <th class="pro_name">
+                                    <span id="pname">제품 이름</span>
+                                        <button id="p-btn">찾기</button>
+                                        <form id="p-form" action="/검색-결과-페이지-주소" method="GET">
+                                        <input id="pn"type="text" name="pname" placeholder="제품이름 검색" />
+                                        <button type="submit">검색</button>
+                                        <button id="re-btn" type="button">취소</button>
+                                        </form>
+                                                                        
+                                   
+                                   
+                                    <!-- <input id="check-btn" type="checkbox" />
+                                    <label for="check-btn"><img class="sur2"src="/img/op.png" alt=""></label>
+                                      <ul class="menubars">
+                                          <li><input class="sur" type="text"><button type="submit">찾기</button></li>
+                                          
+                                      </ul>     -->
+                                      <!-- <form action="" class="search-bar" id="search-bar1" onclick="toggleBtn1()">
+                                        <input class="search"type="search" name="search" pattern=".*\S.*" required >
+                                        <button class="search-btn" id="search-btn1" type="submit">
+                                            <span>Search</span>
+                                        </button>
+                                    </form> -->
+                                </th>
                                 <th>입고량</th>
                                 <th>출고량</th>
-                                <th>입고일</th>
-                                <th>출고일</th>
+                                <th class="input_date_box">입고일<input type="date" id="dbox"></th>
+                                <th class="input_date_box">출고일<input type="date" id="dbox"></th>
                                 <th>소비기한</th>
                                 <th>입고금액</th>
                                 <th>출고금액</th>
@@ -174,13 +203,13 @@
                             
                         </div>
         
-                        <div class="card">
+                        <!-- <div class="card">
                             <div>
                                 <div class="numbers"><ion-icon name="rainy-outline"></ion-icon>날씨</div>
                             </div>
         
                             
-                        </div>
+                        </div> -->
         
                         <div class="card">
                             <div>
@@ -192,7 +221,7 @@
         
                         <div class="card">
                             <div>
-                                <div class="numbers"><ion-icon name="cube-outline"></ion-icon>유통량</div>
+                                <div class="numbers"><ion-icon name="desktop-outline"></ion-icon>검색량</div>
                             </div>
         
                             
@@ -349,7 +378,15 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <!-- =================날씨=========== -->
     <script>
-        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+        !function(d,s,id){
+            var js,fjs=d.getElementsByTagName(s)[0];
+            if(!d.getElementById(id)){
+                js=d.createElement(s);
+                js.id=id;
+                js.src='https://weatherwidget.io/js/widget.min.js';
+                fjs.parentNode.insertBefore(js,fjs);
+            }}
+            (document,'script','weatherwidget-io-js');
         </script>
 </body>
 

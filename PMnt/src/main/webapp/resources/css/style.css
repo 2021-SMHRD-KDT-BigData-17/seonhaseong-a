@@ -622,7 +622,7 @@ body {
   display: flex;
   justify-content: space-between;
   cursor: pointer;
-  border: 5px solid var(--blue);
+  border: 4px solid #86CBC5;;
 }
 
 .rollingbanner .wrap .li a {

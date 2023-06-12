@@ -152,8 +152,10 @@ body {
   user-select: none;
 }
 .navigation ul li label .icon .rogo{
-  width: 60px;
-  user-select: none;
+    width: 140px;
+    user-select: none;
+    padding-left: 20px;
+    padding-top: 30px;
 }
 /* =================로그인============ */
 .navigation ul li a {
@@ -527,6 +529,7 @@ body {
     display: none;
 } 
 #dbox::-webkit-calendar-picker-indicator { 
+    
     z-index: 1;
 } 
 
@@ -538,7 +541,7 @@ body {
   width: 20px;
   height:20px;
 
-  background: gray url('resources/imgs/dr.png') center center /contain;
+  background: gray url('/img/dr.png') center center /contain;
   transform: translateY(-50%);
   z-index: 0;
 }

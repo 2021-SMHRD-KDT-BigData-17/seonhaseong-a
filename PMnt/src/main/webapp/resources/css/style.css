@@ -228,7 +228,7 @@ body {
 
 .navigation ul table{
   margin-top:20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   pointer-events: none;
   background-color: var(--main);
 }

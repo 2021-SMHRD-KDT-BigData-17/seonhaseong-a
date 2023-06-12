@@ -146,9 +146,9 @@ application.setAttribute("user", user);
                 <li>
                     <label href="">
                         <span class="icon">
-                            <img src="resources/imgs/rogo.png" alt="" class="rogo" >
+                            <img src="resources/imgs/logo.png" alt="" class="rogo" >
                         </span>
-                        <span class="title">PMnt</span>
+                        
                     </label>
                 </li>
 

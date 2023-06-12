@@ -527,7 +527,6 @@ body {
     display: none;
 } 
 #dbox::-webkit-calendar-picker-indicator { 
-    background: transparent;
     z-index: 1;
 } 
 
@@ -539,7 +538,7 @@ body {
   width: 20px;
   height:20px;
 
-  background: gray url('/img/dr.png') center center /contain;
+  background: gray url('resources/imgs/dr.png') center center /contain;
   transform: translateY(-50%);
   z-index: 0;
 }

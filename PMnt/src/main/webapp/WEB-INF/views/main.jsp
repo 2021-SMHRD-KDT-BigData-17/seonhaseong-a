@@ -173,11 +173,11 @@ application.setAttribute("user", user);
                 <table class="weather">
                         <tr>
                             <th ><ion-icon name="sunny-outline" style="width: 40px; height: 40px;"></ion-icon></th>
-                            <th></th>
+                            
                         </tr>
                     <tr>
                         <td></td>
-                        <td><a class="weatherwidget-io" href="https://forecast7.com/en/37d57126d98/seoul/" data-label_1="SEOUL" data-label_2="WEATHER" data-font="Ubuntu" data-mode="Current" data-days="3" data-theme="retro-sky" >SEOUL WEATHER</a>
+                        <td><a class="weatherwidget-io" href="https://forecast7.com/en/37d57126d98/seoul/" data-label_1="SEOUL" data-label_2="WEATHER" data-font="Verdana" data-icons="Climacons Animated" data-mode="Current" data-mooncolor="#ffda03" data-cloudcolor="#b3e5fc" data-cloudfill="#fff" data-raincolor="#2f3a55" data-snowcolor="#fff"  data-textcolor="#fff" data-suncolor="#ffb74d" >SEOUL WEATHER</a>
                         </td>
                     </tr>
                 </table>
@@ -549,7 +549,7 @@ application.setAttribute("user", user);
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <!-- =================날씨=========== -->
     <script>
-        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
         </script>
 </body>
 

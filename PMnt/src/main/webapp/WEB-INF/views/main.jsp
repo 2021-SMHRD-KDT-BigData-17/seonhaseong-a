@@ -177,7 +177,7 @@ application.setAttribute("user", user);
                         </tr>
                     <tr>
                         <td></td>
-                        <td><a class="weatherwidget-io" href="https://forecast7.com/en/37d57126d98/seoul/" data-label_1="SEOUL" data-label_2="WEATHER" data-font="Verdana" data-icons="Climacons Animated" data-mode="Current" data-mooncolor="#ffda03" data-cloudcolor="#b3e5fc" data-cloudfill="#fff" data-raincolor="#2f3a55" data-snowcolor="#fff"  data-textcolor="#fff" data-suncolor="#ffb74d" >SEOUL WEATHER</a>
+                        <td><a class="weatherwidget-io" href="https://forecast7.com/en/37d57126d98/seoul/" data-label_1="SEOUL" data-label_2="WEATHER" data-font="Verdana" data-icons="Climacons Animated" data-mode="Current" data-mooncolor="#ffda03" data-cloudcolor="#b3e5fc" data-cloudfill="#fff" data-raincolor="#2f3a55" data-snowcolor="#fff"  data-textcolor="black" data-suncolor="#ffb74d" >SEOUL WEATHER</a>
                         </td>
                     </tr>
                 </table>

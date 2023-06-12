@@ -268,8 +268,8 @@ application.setAttribute("user", user);
                                 <th>출고량</th>
                                 <!-- <th>입고일</th> -->
                                 <!-- <th>출고일</th> -->
-                                <th class="input_date_box">입고일<input type="date" id="dbox"></th>
-                                <th class="input_date_box">출고일<input type="date" id="dbox"></th>
+                                <th class="input_date_box">입고일<input type="date" id="dbox" name = "preceivingdate"></th>
+                                <th class="input_date_box">출고일<input type="date" id="dbox" name = "pshippingdate"></th>
                                 <th>소비기한</th>
                                 <th>입고금액</th>
                                 <th>출고금액</th>

@@ -146,9 +146,9 @@ application.setAttribute("user", user);
                 <li>
                     <label href="">
                         <span class="icon">
-                            <img src="resources/imgs/rogo.png" alt="" class="rogo" >
+                            <img src="resources/imgs/logo.png" alt="" class="rogo" >
                         </span>
-                        <span class="title">PMnt</span>
+                        
                     </label>
                 </li>
 
@@ -173,11 +173,11 @@ application.setAttribute("user", user);
                 <table class="weather">
                         <tr>
                             <th ><ion-icon name="sunny-outline" style="width: 40px; height: 40px;"></ion-icon></th>
-                            <th></th>
+                            
                         </tr>
                     <tr>
                         <td></td>
-                        <td><a class="weatherwidget-io" href="https://forecast7.com/en/37d57126d98/seoul/" data-label_1="SEOUL" data-label_2="WEATHER" data-font="Ubuntu" data-mode="Current" data-days="3" data-theme="retro-sky" >SEOUL WEATHER</a>
+                        <td><a class="weatherwidget-io" href="https://forecast7.com/en/37d57126d98/seoul/" data-label_1="SEOUL" data-label_2="WEATHER" data-font="Verdana" data-icons="Climacons Animated" data-mode="Current" data-mooncolor="#ffda03" data-cloudcolor="#b3e5fc" data-cloudfill="#fff" data-raincolor="#2f3a55" data-snowcolor="#fff"  data-textcolor="black" data-suncolor="#ffb74d" >SEOUL WEATHER</a>
                         </td>
                     </tr>
                 </table>
@@ -250,6 +250,7 @@ application.setAttribute("user", user);
                                         	<input type="hidden" name="userbno" value="<%=user.getUserbno()%>"/>
                                         	<button type="submit">검색</button>
                                         <button id="re-btn" type="button">취소</button>
+                                        </form>
                                    
                                     <!-- <input id="check-btn" type="checkbox" />
                                     <label for="check-btn"><img class="sur2"src="/img/op.png" alt=""></label>
@@ -268,8 +269,19 @@ application.setAttribute("user", user);
                                 <th>출고량</th>
                                 <!-- <th>입고일</th> -->
                                 <!-- <th>출고일</th> -->
-                                <th class="input_date_box">입고일<input type="date" id="dbox" name = "preceivingdate"></th>
-                                <th class="input_date_box">출고일<input type="date" id="dbox" name = "pshippingdate"></th>
+                                <form action = "${cpath}/productSearch2.do" method = "get">
+                                <input type="hidden" name="userbno" value="<%=user.getUserbno()%>"/>
+                                <th class="input_date_box">입고일
+                                <button type ="submit">검색</button>
+                                <input type="date" id="dbox" name ="preceivingdate">
+                                </th>
+                                </form>
+                                <form action = "${cpath}/productSearch3.do" method = "get">
+                                <input type="hidden" name="userbno" value="<%=user.getUserbno()%>"/>
+                                <th class="input_date_box">출고일
+                                <button type ="submit">검색</button>
+                                <input type="date" id="dbox" name ="pshippingdate"></th>
+                                </form>
                                 <th>소비기한</th>
                                 <th>입고금액</th>
                                 <th>출고금액</th>
@@ -285,7 +297,6 @@ application.setAttribute("user", user);
                         		<%-- <span>${sessionScope}</span> 세션의 값 확인용--%> 
                         		<!-- 참고용 -->
                         		<!-- session에 담긴 userbno값과 list에 있는 userbno의 값이 같은 것만 list에 출력해주는 방식으로 출력해준다 -->
-									
 									<c:if test="${productl.userbno == user.userbno}">
 	                        		<tr>
 	                        			<td>${productl.pnum}</td> <!-- 제품번호 -->
@@ -305,12 +316,11 @@ application.setAttribute("user", user);
 											<td><button type = "submit" id="append_row">삭제</button></td>
 										</form>
 	                        		</tr>
-                        			</c:if>
+                        		</c:if>
 	                        		<!-- <script type="text/javascript">
 										alert("준비중입니다.");
 									</script> -->
                         	</c:forEach>
-                        	</form>
                         </tbody>
                     </table>
                 </div>
@@ -550,7 +560,7 @@ application.setAttribute("user", user);
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <!-- =================날씨=========== -->
     <script>
-        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
         </script>
 </body>
 

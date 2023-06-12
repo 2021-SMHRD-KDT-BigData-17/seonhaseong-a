@@ -37,42 +37,6 @@ application.setAttribute("user", user);
 
 <body>
 
-
-<%-- <script>
-                                    $(document).ready(function() {
-                                    	  // date 입력 값이 변경되었을 때 실행되는 이벤트 핸들러
-                                    	  $('#dbox1').on('change', function() {
-                                    	    var selectedDate = $(this).val(); // 선택한 날짜 값을 가져옵니다.
-                                    	    var userbno = <%=user.getUserbno()%>; // userbno 값을 가져옵니다.
-											console.log(selectedDate) // 날짜 확인 완료  "2023-06-08"
-											console.log(userbno) // userbno 확인 완료  "123456"
-											
-                                    	    $.ajax({
-                                    	      url: '#{cpath}/productSearch2.do',
-                                    	      type: 'post',
-                                    	      dataType: 'json',
-                                    	      data: {
-                                    	        date: selectedDate,
-                                    	        userbno: userbno
-                                    	      },
-                                    	      success: function() {
-                                    	    	  alert("ajax통신 성공")
-                                    	        // AJAX 요청이 성공적으로 완료된 후 실행될 콜백 함수입니다.
-                                    	        console.log(response);
-                                    	        // 서버에서 반환된 응답 데이터를 콘솔에 출력하거나 필요한 작업을 수행합니다.
-                                    	      },
-                                    	      error: function(xhr, status, error) {
-                                    	    	  alert("ajax통신 실패")
-                                    	        // AJAX 요청이 실패한 경우 실행될 콜백 함수입니다.
-                                    	        console.error(error);
-                                    	        // 오류 메시지를 콘솔에 출력하거나 오류 처리를 수행합니다.
-                                    	      }
-                                    	    });
-                                    	  });
-                                    	});
-                                    
-                                    </script> --%>
-
 <%-- <script>
 
 	
@@ -300,9 +264,6 @@ application.setAttribute("user", user);
                                             <span>Search</span>
                                         </button>
                                     </form> -->
-                                    
-                                    
-                                    
                                 </th>
                                 <th>입고량</th>
                                 <th>출고량</th>
@@ -332,7 +293,7 @@ application.setAttribute("user", user);
                         <tbody id="pro_product_body">
 								<!-- session에 담긴 userbno값 불러오기 확인용  -->                        		
                         		<%-- <span>${user.userbno}</span>  --%>
-                        	<c:forEach items="${list}" var = "productl">
+                        	<c:forEach items="${search3}" var = "productl">
                         		<%-- <span>${sessionScope}</span> 세션의 값 확인용--%> 
                         		<!-- 참고용 -->
                         		<!-- session에 담긴 userbno값과 list에 있는 userbno의 값이 같은 것만 list에 출력해주는 방식으로 출력해준다 -->

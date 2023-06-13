@@ -216,8 +216,6 @@ application.setAttribute("user", user);
                     </label>
                 </li>
                 
-                
-
 
             </ul>
         </div>

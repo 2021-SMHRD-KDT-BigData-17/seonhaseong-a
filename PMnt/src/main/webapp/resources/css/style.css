@@ -424,12 +424,12 @@ body {
   border-bottom: 2px solid #86CBC5;
   border-right: 2px solid #86cbc5;
 }
-/* .quote tr:first-child th:first-child {
+ .quote tr:first-child th:first-child {
   border-top-left-radius: 6px;
 }
 .quote tr:first-child th:last-child {
   border-top-right-radius: 6px;
-} */
+} 
 .quote td{
   /* border-right: 1px solid #dddddd; */
   border-bottom: 3px solid #dddddd;
@@ -440,12 +440,26 @@ body {
 .quote tr:nth-child(even) td{
   background: #eaeaed;
 }
-/* .quote tr:last-child td:first-child{
+ .quote tr:last-child td:first-child{
   border-bottom-left-radius: 6px;
 }
 .quote tr:last-child td:last-child{
   border-bottom-right-radius: 6px;
-} */
+}
+.input_pro tr:first-child th:first-child {
+  border-top-left-radius: 6px;
+}
+.input_pro tr:first-child th:last-child {
+  border-top-right-radius: 6px;
+}
+
+
+.input_pro tr:last-child td:first-child{
+  border-bottom-left-radius: 6px;
+}
+.input_pro tr:last-child td:last-child{
+  border-bottom-right-radius: 6px;
+}
 #append_row {
 	border-radius: 3px;
 	border: 3px solid #86CBC5;

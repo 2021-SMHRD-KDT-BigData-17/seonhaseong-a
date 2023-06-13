@@ -494,7 +494,7 @@ th{
 		"Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial,
 		"Lucida Grande", Sans-Serif;
 	margin: 20px;
-	position: absolute;
+	/* position: absolute; */
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 	border-radius: 10px;
 	border-bottom: 3px solid #009897;

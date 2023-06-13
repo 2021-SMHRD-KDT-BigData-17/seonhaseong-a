@@ -377,42 +377,16 @@ application.setAttribute("user", user);
                             <div>
                                 <div class="numbers"> <ion-icon name="stats-chart-outline"></ion-icon>종합</div>
                             </div>
-        
-                            
-                        </div>
-        
-                        <div class="card">
-                            <div>
-                                <div class="numbers"><ion-icon name="rainy-outline"></ion-icon>날씨</div>
-                            </div>
-        
-                            
-                        </div>
-        
-                        <div class="card">
-                            <div>
-                                <div class="numbers"><ion-icon name="thermometer-outline"></ion-icon>온도</div>
-                            </div>
-        
-                        
-                        </div>
-        
-                        <div class="card">
-                            <div>
-                                <div class="numbers"><ion-icon name="cube-outline"></ion-icon>유통량</div>
-                            </div>
-        
-                            
                         </div>
                     </div>
                     <div class="rollingbanner ">
                         <div class="wrap">
                             <ul>
-                                <li class="current"><a href="#">어제의 안성민 1000원</a></li>
-                                <li class="next"><a href="#">오늘의 안성민 2000원</a></li>
-                                <li><a href="#">내일의 안성민 2500원</a></li>
-                                <li><a href="#">토요일의 안성민 0원</a></li>
-                                <li class="prev"><a href="#">일요일의 안성민 0원</a></li>
+                                <li class="current"><a href="#">사과 1kg 10000원</a></li>
+                                <li class="next"><a href="#"></a></li>
+                                <li><a href="#">복숭아 1kg 15000원</a></li>
+                                <li><a href="#">딸기 1kg 20000원</a></li>
+                                <li class="prev"><a href="#">포도 1kg 15000원</a></li>
                             </ul>
                         </div>
                     </div>

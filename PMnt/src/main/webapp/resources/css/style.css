@@ -481,8 +481,12 @@ body {
     height: 20px;
     width: 35px;
 }
-.input_pro  {
+.text{
 	color: #666;
+	margin: 20px;
+}
+.input_pro  {
+	
 	font: 14px/24px "Open Sans", "HelveticaNeue-Light",
 		"Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial,
 		"Lucida Grande", Sans-Serif;

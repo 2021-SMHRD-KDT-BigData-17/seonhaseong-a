@@ -2,6 +2,7 @@ package kr.smhrd.PMnt.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import kr.smhrd.PMnt.entity.ProProduct;
+import kr.smhrd.PMnt.entity.ProUser;
 import kr.smhrd.PMnt.mapper.ProductMapper;
 
 // json 데이터 통신을 위한 컨트롤러
@@ -26,6 +28,9 @@ public class ProductController {
 	// ProductMapper 의존성
 	@Autowired
 	private ProductMapper mapper;
+	
+	@Autowired
+	private HttpServletRequest request;
 	
 	// 재고관리 리스트 
 //	@GetMapping("/product.do")
@@ -71,12 +76,20 @@ public class ProductController {
 		System.out.println("확인용");
 		System.out.println(pname);
 		System.out.println(userbno);
+		
+        
 		ProProduct product = new ProProduct();
 		product.setPname(pname);
 		product.setUserbno(userbno);
 		List<ProProduct> search = mapper.productSearch(product);
 		model.addAttribute("search", search);
 		System.out.println(search);
+		
+		if (product != null) {
+            HttpSession session = request.getSession();
+            session.setAttribute("product", product);
+            System.out.println(product+"세션 저장 확인");
+            }
 		
 		return "main2";
 	}
@@ -94,6 +107,13 @@ public class ProductController {
 		model.addAttribute("search2", search2);
 		System.out.println(search2);
 		
+		if (product != null) {
+            HttpSession session = request.getSession();
+            session.setAttribute("product", product);
+            System.out.println(product+"세션 저장 확인");
+            }
+		
+		
 		return "main3";
 	}
 	
@@ -108,6 +128,13 @@ public class ProductController {
 		List<ProProduct> search3 = mapper.productSearch3(product);
 		model.addAttribute("search3", search3);
 		System.out.println(search3);
+		
+		if (product != null) {
+            HttpSession session = request.getSession();
+            session.setAttribute("product", product);
+            System.out.println(product+"세션 저장 확인");
+            }
+		
 		
 		return "main4";
 	}
@@ -134,5 +161,48 @@ public class ProductController {
 		return "redirect:/main.do";
 	}
 	
+	@GetMapping("/productup2.do")
+	public String productSearch6(@RequestParam("pname") String pname, @RequestParam("userbno") String userbno,Model model) {
+		System.out.println("확인용");
+		System.out.println(pname);
+		System.out.println(userbno);
+		ProProduct product = new ProProduct();
+		product.setPname(pname);
+		product.setUserbno(userbno);
+		List<ProProduct> search = mapper.productSearch(product);
+		model.addAttribute("search", search);
+		System.out.println(search);
+		return "main6";
+	}
+	
+	
+	@GetMapping("/productup3.do")
+	public String productSearch7(@RequestParam("preceivingdate") String preceivingdate, @RequestParam("userbno") String userbno,Model model) {
+		System.out.println("확인용");
+		System.out.println(preceivingdate);
+		System.out.println(userbno);
+		ProProduct product = new ProProduct();
+		product.setPreceivingdate(preceivingdate);
+		product.setUserbno(userbno);
+		List<ProProduct> search2 = mapper.productSearch2(product);
+		model.addAttribute("search2", search2);
+		System.out.println(search2);
+		return "main7";
+	}
+	
+	@GetMapping("/productup4.do")
+	public String productSearch8(@RequestParam("pshippingdate") String pshippingdate, @RequestParam("userbno") String userbno,Model model) {
+		System.out.println("확인용");
+		System.out.println(pshippingdate);
+		System.out.println(userbno);
+		ProProduct product = new ProProduct();
+		product.setPshippingdate(pshippingdate);
+		product.setUserbno(userbno);
+		List<ProProduct> search3 = mapper.productSearch3(product);
+		model.addAttribute("search3", search3);
+		System.out.println(search3);
+		
+		return "main8";
+	}
 	
 }

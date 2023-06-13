@@ -293,7 +293,7 @@ application.setAttribute("user", user);
                         <tbody id="pro_product_body">
 								<!-- session에 담긴 userbno값 불러오기 확인용  -->                        		
                         		<%-- <span>${user.userbno}</span>  --%>
-                        	<c:forEach items="${list}" var = "productl">
+                        	<c:forEach items="${search3}" var = "productl">
                         		<%-- <span>${sessionScope}</span> 세션의 값 확인용--%> 
                         		<!-- 참고용 -->
                         		<!-- session에 담긴 userbno값과 list에 있는 userbno의 값이 같은 것만 list에 출력해주는 방식으로 출력해준다 -->

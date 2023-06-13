@@ -10,6 +10,7 @@
 <%
 ProUser user = (ProUser) session.getAttribute("loginuser");
 
+ProProduct productinfo = (ProProduct) session.getAttribute("product");
 
 // 동일한 요청에 의해 실행되는 페이지 간에 정보를 유지하기 위해 HttServletRequest객체에 등록 합니다.
 request.setAttribute("user", user);
@@ -234,7 +235,11 @@ application.setAttribute("user", user);
         <div class="main">
             <div class="maincon">
 				<div class="btnhome">
-                    <a href="${cpath}/productup.do"><button class="bt11">수정</button></a>
+                    <form action = "${cpath}/productup3.do" method = "get">
+                    <input type="hidden" id="userbno" name="userbno" value = "<%=user.getUserbno() %>">
+                    <input type="hidden" id="pname" name="preceivingdate" value = "<%=productinfo.getPreceivingdate()%>">
+                    <button class="bt11" type = "submit">수정</button>
+                    </form>
                 </div>
                 <div class="quote">
                     <table id="pro_product">
@@ -361,7 +366,7 @@ application.setAttribute("user", user);
 					                            <td><input type="text" placeholder="수입" id="pincome" name="pincome"></td>
 					                            <td><input type="text" placeholder="비고" id="premarks" name="premarks"></td>
 					                            <input type="hidden" id="userbno" name="userbno" value = "<%=user.getUserbno() %>">
-					                            <td><button type="submit" id="append_row">제품추가</button></td>
+					                            <td><button type="submit" id="append_row2">제품추가</button></td>
 					                           </tr>
 				                        </tbody>
 		                    		</form>

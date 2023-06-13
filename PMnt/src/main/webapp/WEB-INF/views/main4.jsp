@@ -324,8 +324,8 @@ application.setAttribute("user", user);
                         </tbody>
                     </table>
                 </div>
+                <div class="text"><h3>제품추가</h3></div>
                 <div class="input_pro">
-                    <h3>제품 추가</h3>
                     <table id="pro_product_plus">
                         <thead>
                             <tr>

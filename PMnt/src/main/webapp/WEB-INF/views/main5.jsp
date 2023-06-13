@@ -233,7 +233,7 @@ application.setAttribute("user", user);
         <div class="main">
             <div class="maincon">
 				<div class="btnhome">
-                    <a href="${cpath}/loginu.do"><button class="bt11">취소</button></a>
+                    <a href="${cpath}/main.do"><button class="bt11">취소</button></a>
                 </div>
                 <div class="quote">
                     <table id="pro_product">

@@ -364,7 +364,8 @@ application.setAttribute("user", user);
                     </table>
                 </div>
                 <div class="input_pro">
-                    <h3>제품 추가</h3>
+                    
+                    
                     <table id="pro_product_plus">
                         <thead>
                             <tr>
@@ -399,7 +400,7 @@ application.setAttribute("user", user);
 					                            <td><input type="text" placeholder="수입" id="pincome" name="pincome"></td>
 					                            <td><input type="text" placeholder="비고" id="premarks" name="premarks"></td>
 					                            <input type="hidden" id="userbno" name="userbno" value = "<%=user.getUserbno() %>">
-					                            <td><button type="submit" id="append_row">제품추가</button></td>
+					                            <td><button type="submit" id="append_row2">제품추가</button></td>
 					                           </tr>
 				                        </tbody>
 		                    		</form>
@@ -408,6 +409,7 @@ application.setAttribute("user", user);
                     	</table>
                 </div>
             </div>
+          
             <!-- =================상품예측=============== -->
             <div class="maincon"><!--2번div-->
                 <div class="menuu">

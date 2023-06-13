@@ -65,7 +65,7 @@ public class ProductController {
 //		return "main";
 //	}
 	
-	// 재고검색 기능 controller
+	// 재품명 검색
 	@GetMapping("/productSearch.do")
 	public String productSearch(@RequestParam("pname") String pname, @RequestParam("userbno") String userbno,Model model) {
 		System.out.println("확인용");
@@ -79,6 +79,37 @@ public class ProductController {
 		System.out.println(search);
 		
 		return "main2";
+	}
+	
+	// 입고일 검색 form / button사용시 작동가능
+	@GetMapping("/productSearch2.do")
+	public String productSearch2(@RequestParam("preceivingdate") String preceivingdate, @RequestParam("userbno") String userbno,Model model) {
+		System.out.println("확인용");
+		System.out.println(preceivingdate);
+		System.out.println(userbno);
+		ProProduct product = new ProProduct();
+		product.setPreceivingdate(preceivingdate);
+		product.setUserbno(userbno);
+		List<ProProduct> search2 = mapper.productSearch2(product);
+		model.addAttribute("search2", search2);
+		System.out.println(search2);
+		
+		return "main3";
+	}
+	
+	@GetMapping("/productSearch3.do")
+	public String productSearch3(@RequestParam("pshippingdate") String pshippingdate, @RequestParam("userbno") String userbno,Model model) {
+		System.out.println("확인용");
+		System.out.println(pshippingdate);
+		System.out.println(userbno);
+		ProProduct product = new ProProduct();
+		product.setPshippingdate(pshippingdate);
+		product.setUserbno(userbno);
+		List<ProProduct> search3 = mapper.productSearch3(product);
+		model.addAttribute("search3", search3);
+		System.out.println(search3);
+		
+		return "main4";
 	}
 	
 //	 @RequestMapping("/main2.do")

@@ -28,4 +28,14 @@
 		select * from pro_product where pname = #{pname} and userbno = #{userbno}
 	</select>
 	
+	<!-- 입고일 검색기능 sql문 -->
+	<select id = "productSearch2" resultType = "kr.smhrd.PMnt.entity.ProProduct">
+		select * from pro_product where preceivingdate = #{preceivingdate} and userbno = #{userbno}
+	</select>
+	
+	<!-- 입고일 검색기능 sql문 -->
+	<select id = "productSearch3" resultType = "kr.smhrd.PMnt.entity.ProProduct">
+		select * from pro_product where pshippingdate = #{pshippingdate} and userbno = #{userbno}
+	</select>
+	
 </mapper>

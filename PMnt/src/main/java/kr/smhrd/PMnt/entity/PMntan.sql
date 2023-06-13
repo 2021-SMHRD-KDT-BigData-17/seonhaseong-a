@@ -22,3 +22,11 @@ WHERE userbno = '123456';
 select * from pro_product order by userbno;
 
 SHOW COLUMNS FROM pro_product;
+
+
+select * from pro_product where userbno ="123456" and pname ="사과";
+
+
+select * from pro_product where pname ="사과" and userbno ="123456";
+
+select * from pro_product where pname = "사과";

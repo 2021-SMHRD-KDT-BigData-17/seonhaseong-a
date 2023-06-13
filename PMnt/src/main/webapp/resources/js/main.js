@@ -52,5 +52,33 @@ function rollingCallback(){
 }
 
 
+// function toggleBtn1() {
+  
+//     // 토글 할 버튼 선택 (btn1)
+//     const btn1 = document.getElementById('text');
+    
+//     // btn1 숨기기 (display: none)
+//     if(btn1.style.display !== 'none') {
+//       btn1.style.display = 'none';
+//     }
+//     // btn` 보이기 (display: block)
+//     else {
+//       btn1.style.display = 'block';
+//     }
+// }
 
+document.getElementById("p-btn").addEventListener("click", function() {
+    document.getElementById("pname").style.display = "none";
+    document.getElementById("p-btn").style.display = "none";
+    document.getElementById("p-form").style.display = "block";
+  });
 
+  document.getElementById("re-btn").addEventListener("click", function() {
+    document.getElementById("p-form").style.display = "none";
+    document.getElementById("pname").style.display = "inline";
+    document.getElementById("p-btn").style.display = "inline";
+  });
+
+  document.getElementById("day-clik").addEventListener("click", function() {
+    document.getElementById("dbox").click();
+  });

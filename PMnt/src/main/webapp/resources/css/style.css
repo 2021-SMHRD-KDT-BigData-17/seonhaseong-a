@@ -435,7 +435,7 @@ body {
   border-bottom: 3px solid #dddddd;
 }
 .quote td:first-child {
-  border-left: 1px solid #c6c9cc;
+  /* border-left: 1px solid #c6c9cc; */
 }
 .quote tr:nth-child(even) td{
   background: #eaeaed;
@@ -451,7 +451,15 @@ body {
 	border: 3px solid #86CBC5;
 	background: #fff;
 	height: 20px;
-	width: 35px;}
+	width: 35px;
+}
+#p-btn{
+	border-radius: 3px;
+    border: 3px solid #86CBC5;
+    background: #fff;
+    height: 30px;
+    width: 50px;
+}
 .input_pro {
   color: #666;
   font: 14px/24px "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", Sans-Serif;
@@ -460,32 +468,33 @@ body {
   bottom: 100px;
   
 }
-.input_pro table {
-  border-collapse: separate;
-  border-spacing: 0;
-  width: 100%;
-  border:1px solid
-  /* table-layout: fixed; */
-}
+.input_pro table  {
+	border-collapse: separate;
+	border-spacing: 0;
+	width: 100%;
+	border-radius: 10px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+	/*  border:1px solid */
+	/* table-layout: fixed; */}
 .input_pro th{
-  border:1px solid black;
-  padding: 6px;
-}
+	border-bottom: 2px solid #86CBC5;
+	border-right: 2px solid #86cbc5;
+	padding: 6px;
+	background: #009897;}
 .input_pro td{
   padding:5px;
 }
 .input_pro th {
-  background: #009897;
+  
   color: #fff;
   text-align: left;
 }
 
 .input_pro td{
-  border-right: 1px solid #c6c9cc;
-  border-bottom: 1px solid #c6c9cc;
+ 	border-bottom: 3px solid #009897;
 }
 .input_pro td:first-child {
-  border-left: 1px solid #c6c9cc;
+  /* border-left: 1px solid #c6c9cc; */
 }
 .input_pro tr:nth-child(even) td{
   background: #eaeaed;
@@ -517,8 +526,22 @@ body {
   width: 120px;
   border-radius: 5px;
   border: 1px solid #fff;
+  font-size: 15px;
 }
-
+#re-btn {
+	border-radius: 3px;
+	border: 3px solid #86CBC5;
+	background: #fff;
+	height: 30px;
+	width: 50px;
+	}
+#search-btn{
+	border-radius: 3px;
+	border: 3px solid #86CBC5;
+	background: #fff;
+	height: 30px;
+	width: 50px;
+}
 
 /* #dbox{
   width: 20px;
@@ -531,7 +554,7 @@ body {
 
 #dbox{
   position: relative;
-  min-height:30px;
+  /* min-height:30px; */
   border: 1px solid #fff;
   border-radius: 5px;
   background-color: #fff;

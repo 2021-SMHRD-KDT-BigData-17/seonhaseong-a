@@ -248,7 +248,7 @@ application.setAttribute("user", user);
                                         <form id="p-form" action="${cpath}/productSearch.do" method="get">
                                         	<input id="pn"type="text" name="pname" placeholder="제품이름 검색" />
                                         	<input type="hidden" name="userbno" value="<%=user.getUserbno()%>"/>
-                                        	<button type="submit">검색</button>
+                                        	<button id="search-btn" type="submit">검색</button>
                                         <button id="re-btn" type="button">취소</button>
                                         </form>
                                    
@@ -272,14 +272,14 @@ application.setAttribute("user", user);
                                 <form action = "${cpath}/productSearch2.do" method = "get">
                                 <input type="hidden" name="userbno" value="<%=user.getUserbno()%>"/>
                                 <th class="input_date_box">입고일
-                                <button type ="submit">검색</button>
+                                <button id="search-btn" type ="submit">검색</button>
                                 <input type="date" id="dbox" name ="preceivingdate">
                                 </th>
                                 </form>
                                 <form action = "${cpath}/productSearch3.do" method = "get">
                                 <input type="hidden" name="userbno" value="<%=user.getUserbno()%>"/>
                                 <th class="input_date_box">출고일
-                                <button type ="submit">검색</button>
+                                <button id="search-btn" type ="submit">검색</button>
                                 <input type="date" id="dbox" name ="pshippingdate"></th>
                                 </form>
                                 <th>소비기한</th>

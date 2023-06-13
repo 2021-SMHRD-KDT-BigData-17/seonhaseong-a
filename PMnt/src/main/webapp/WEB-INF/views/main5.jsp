@@ -293,30 +293,30 @@ application.setAttribute("user", user);
                         <tbody id="pro_product_body">
 								<!-- session에 담긴 userbno값 불러오기 확인용  -->                        		
                         		<%-- <span>${user.userbno}</span>  --%>
-                        	<c:forEach items="${search}" var = "productl">
+                        	<c:forEach items="${list}" var = "productl">
                         		<%-- <span>${sessionScope}</span> 세션의 값 확인용--%> 
                         		<!-- 참고용 -->
                         		<!-- session에 담긴 userbno값과 list에 있는 userbno의 값이 같은 것만 list에 출력해주는 방식으로 출력해준다 -->
 									<c:if test="${productl.userbno == user.userbno}">
-	                        		<tr>
-	                        			<td>${productl.pnum}</td> <!-- 제품번호 -->
-	                        			<td>${productl.pname}</td> <!-- 제품이름 -->
-	                        			<%-- <td><input type="text" placeholder="${productl.pnum}" id="pname" name = "pname"> </td> --%>
-	                        			<td>${productl.preceivingquantity}</td> <!-- 입고량 -->
-	                        			<td>${productl.pshipments}</td> <!-- 출고량 -->
-	                        			<td>${productl.preceivingdate}</td> <!-- 입고일 --> 
-	                        			<td>${productl.pshippingdate}</td> <!-- 출고일 -->
-	                        			<td>${productl.pexpirationdate}</td> <!-- 소비기한 -->
-	                        			<td>${productl.preceivingamount}</td> <!-- 입고금액 -->
-	                        			<td>${productl.pshippingamount}</td> <!-- 출고금액 -->
-	                        			<td>${productl.pincome}</td> <!-- 수입 -->
-	                        			<td>${productl.premarks}</td> <!-- 비고 -->
-	                        			<form action = "${cpath}/productDelete.do" method ="post">
+	                        			<tr>
+											<form action = "${cpath}/productUpdate.do" method ="post">
 	                        				<input type="hidden" name="pseq" value="${productl.pseq}"/>
-											<td><button type = "submit" id="append_row">삭제</button></td>
+											<td>${productl.pnum}</td> <!-- 제품번호 -->
+											<td>${productl.pname}</td> <!-- 제품이름 -->
+											<td><input type="text" placeholder="${productl.preceivingquantity}" name ="preceivingquantity" style="width:70px"></td>
+											<td><input type="text" placeholder="${productl.pshipments}"  name ="pshipments" style="width:70px"></td>
+											<td><input type="date" value="${productl.preceivingdate}"  name ="preceivingdate"></td>
+											<td><input type="date" value="${productl.pshippingdate}"  name ="pshippingdate"></td>
+											<td>${productl.pexpirationdate}</td> <!-- 소비기한 -->
+											<td><input type="text" placeholder="${productl.preceivingamount}"  name="preceivingamount" style="width:70px"></td>
+											<td><input type="text" placeholder="${productl.pshippingamount}"  name="pshippingamount" style="width:70px"></td>
+											<td><input type="text" placeholder="${productl.pincome}"  name="pincome" style="width:70px"></td>
+											<td><input type="text" placeholder="${productl.premarks}"  name="premarks" style="width:70px"></td>
+											<input type="hidden" id="userbno" name="userbno" value = "<%=user.getUserbno() %>">
+											<td><button type = "submit" id="append_row">수정</button></td>
 										</form>
-	                        		</tr>
-                        		</c:if>
+										</tr>
+                        			</c:if>
 	                        		<!-- <script type="text/javascript">
 										alert("준비중입니다.");
 									</script> -->

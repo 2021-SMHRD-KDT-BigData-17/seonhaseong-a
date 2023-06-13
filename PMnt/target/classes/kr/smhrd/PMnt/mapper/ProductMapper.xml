@@ -38,4 +38,12 @@
 		select * from pro_product where pshippingdate = #{pshippingdate} and userbno = #{userbno}
 	</select>
 	
+	<update id= "productUpdate" parameterType ="kr.smhrd.PMnt.entity.ProProduct">
+		update pro_product set preceivingquantity = #{preceivingquantity},
+		pshipments = #{pshipments}, preceivingdate = #{preceivingdate},
+		pshippingdate =#{pshippingdate}, preceivingamount =#{preceivingamount},
+		pshippingamount =#{pshippingamount},pincome = #{pincome}, premarks = #{premarks}
+		where pseq=#{pseq} and userbno =#{userbno}
+	</update>
+	
 </mapper>

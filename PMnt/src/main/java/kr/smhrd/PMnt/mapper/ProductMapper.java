@@ -25,6 +25,8 @@ public interface ProductMapper {
 	public List<ProProduct> productSearch2(ProProduct product);
 	
 	// 출고일 검색 mapper
-		public List<ProProduct> productSearch3(ProProduct product);
+	public List<ProProduct> productSearch3(ProProduct product);
+	
+	public void productUpdate(ProProduct product);
 	
 }

@@ -119,4 +119,20 @@ public class ProductController {
 //	        return "main2";
 //	    }
 	
+	
+	@GetMapping("/productup.do")
+	public String productup(Model model) {
+		List<ProProduct> list = mapper.productList();
+		model.addAttribute("list", list);
+		return "main5";
+	}
+	
+	@PostMapping("/productUpdate.do")
+	public String product(ProProduct product) {
+		mapper.productUpdate(product);
+		System.out.println(product);
+		return "redirect:/main.do";
+	}
+	
+	
 }

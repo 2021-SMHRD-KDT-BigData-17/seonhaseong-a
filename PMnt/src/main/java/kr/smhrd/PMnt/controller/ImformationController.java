@@ -49,6 +49,7 @@ public class ImformationController {
 	public String userUpdate(ProUser user)  {
 		mapper.imformation(user);
 		return "redirect:/main.do";
+		
 	}
 	
 	

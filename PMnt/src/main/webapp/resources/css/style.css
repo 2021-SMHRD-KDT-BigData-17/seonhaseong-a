@@ -60,6 +60,9 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
 }
+th{
+	font-weight: 300;
+}
 
 .container {
   position: relative;

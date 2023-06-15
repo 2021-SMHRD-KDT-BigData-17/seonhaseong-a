@@ -779,6 +779,7 @@ th{
   box-shadow: rgba(0, 0, 0, 0.08) 0px 7px 25px;
   border-radius: 10px;
   border: 1px solid #86CBC5;
+  overflow: auto;
   
 }
 

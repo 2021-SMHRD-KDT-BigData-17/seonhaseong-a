@@ -36,6 +36,61 @@ application.setAttribute("user", user);
 </head>
 
 <body>
+<script>
+
+// 월별 제철과일의 정보를 출력해줌
+	$(document).ready(function(){
+		// trueproductlist() 함수 호출
+		fruitslist();
+		
+	}); // 제일 먼저 실행되는 함수
+	
+	// 제철과일의 정보를 리스트로 담아와서 해당 값을 맞게 실행하는 방법
+	function fruitslist(){
+		console.log("병국쌤 바보");
+		
+		// ajax통신으로 요청 주고 받기
+		
+		$.ajax({
+			url : "${cpath}/fruits.do",
+			type : "get",
+			// data : 보내줄 데이터 없음
+			dataType : "json",
+			success : callBack,
+			error : function(){
+				alert("akax통신 실패!!");
+			
+			} //function() 함수 끝
+			
+		})
+	}
+		
+	// ajax 통신을 성공했을때 실행될 function
+		function callBack(data){
+		console.log(data);
+			var fruitslist = '<div class="textbox">';
+			fruitslist += '<div class="text">추천 상품입니다.</div>';
+			fruitslist += '<div class="text">'+data[0].ftext+'</div>';
+			fruitslist += '</div>'; 
+			// 마지막에 위의 값들이 출력될 위치 정하기
+			$('.box').html(fruitslist);
+		}
+	
+	// chartdp에 데이터 값 출력하기
+/* 	function chartval(){
+		console.log("chartval 실행 확인")
+		
+		$.ajax({
+			url : ""
+		})
+	} */
+
+	
+	
+	
+	
+</script>
+
 
 
 <%-- <script>
@@ -440,9 +495,9 @@ application.setAttribute("user", user);
                 </div> 
                 <!-- 텍스트 박스 -->
                 <div class="box">
-                    <div class="textbox">
+                    <!-- <div class="textbox">
                         <div class="text"></div>
-                    </div>
+                    </div> -->
                 </div>   
             </div>
             <!-- ================ 회원수정 ================= -->

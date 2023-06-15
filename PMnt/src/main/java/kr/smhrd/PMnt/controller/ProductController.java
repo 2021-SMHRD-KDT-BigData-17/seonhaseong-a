@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import kr.smhrd.PMnt.entity.ProFruits;
 import kr.smhrd.PMnt.entity.ProProduct;
 import kr.smhrd.PMnt.entity.ProUser;
 import kr.smhrd.PMnt.mapper.ProductMapper;
@@ -40,8 +42,6 @@ public class ProductController {
 //		
 //		return list;
 //	}
-
-
 	
 	@PostMapping("/productInsert.do")
 	public String productInsert(ProProduct product) {
@@ -204,5 +204,17 @@ public class ProductController {
 		
 		return "main8";
 	}
+	
+	
+
+	@GetMapping("/fruits.do")
+	public @ResponseBody List<ProFruits> fruitsList() {
+		System.out.println("성민 바보 확인용");
+		List<ProFruits> fruits = mapper.fruitsList();
+		System.out.println(fruits);
+		return fruits;
+	}
+	
+	
 	
 }

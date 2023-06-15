@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import kr.smhrd.PMnt.entity.ProFruits;
 import kr.smhrd.PMnt.entity.ProProduct;
 
 
@@ -27,6 +28,10 @@ public interface ProductMapper {
 	// 출고일 검색 mapper
 	public List<ProProduct> productSearch3(ProProduct product);
 	
+	// 재고 수정
 	public void productUpdate(ProProduct product);
+	
+	// 제철과일 정보 mapper
+	public List<ProFruits>fruitsList();
 	
 }

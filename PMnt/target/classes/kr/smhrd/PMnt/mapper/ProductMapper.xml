@@ -46,4 +46,9 @@
 		where pseq=#{pseq} and userbno =#{userbno}
 	</update>
 	
+	
+	<select id="fruitsList" resultType="kr.smhrd.PMnt.entity.ProFruits">
+       select * from pro_fruits where fmonth = date_format(now(), '%m');
+   </select>
+	
 </mapper>

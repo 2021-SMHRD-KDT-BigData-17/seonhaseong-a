@@ -38,7 +38,41 @@ application.setAttribute("user", user);
 </head>
 
 <body>
+<script>
+	$(document).ready(function(){
+		// trueproductlist() 함수 호출
+		fruitslist();
+		
+	}); // 제일 먼저 실행되는 함수
+	
+	function fruitslist(){
+		console.log("병국쌤 바보");
+		
+		// ajax통신으로 요청 주고 받기
+		
+		$.ajax({
+			url : "${cpath}/fruits.do",
+			type : "get",
+			// data : 보내줄 데이터 없음
+			dataType : "json",
+			success : callBack,
+			error : function(){
+				alert("akax통신 실패!!");
+			
+			} //function() 함수 끝
+			
+		})
+	}
+		
+		function callBack(data){
+		console.log(data);
+			var fruitslist = '<div class="textbox">';
+			fruitslist += '<div class="text">'+data[0].ftext+'</div>';
+			fruitslist += '</div>'; 
+			$('.box').html(fruitslist);
+		}
 
+</script>
 <%-- <script>
 
 	

@@ -60,6 +60,9 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
 }
+th{
+	font-weight: 300;
+}
 
 .container {
   position: relative;
@@ -424,12 +427,12 @@ body {
   border-bottom: 2px solid #86CBC5;
   border-right: 2px solid #86cbc5;
 }
-/* .quote tr:first-child th:first-child {
+ .quote tr:first-child th:first-child {
   border-top-left-radius: 6px;
 }
 .quote tr:first-child th:last-child {
   border-top-right-radius: 6px;
-} */
+} 
 .quote td{
   /* border-right: 1px solid #dddddd; */
   border-bottom: 3px solid #dddddd;
@@ -440,12 +443,26 @@ body {
 .quote tr:nth-child(even) td{
   background: #eaeaed;
 }
-/* .quote tr:last-child td:first-child{
+ .quote tr:last-child td:first-child{
   border-bottom-left-radius: 6px;
 }
 .quote tr:last-child td:last-child{
   border-bottom-right-radius: 6px;
-} */
+}
+.input_pro tr:first-child th:first-child {
+  border-top-left-radius: 6px;
+}
+.input_pro tr:first-child th:last-child {
+  border-top-right-radius: 6px;
+}
+
+
+.input_pro tr:last-child td:first-child{
+  border-bottom-left-radius: 6px;
+}
+.input_pro tr:last-child td:last-child{
+  border-bottom-right-radius: 6px;
+}
 #append_row {
 	border-radius: 3px;
 	border: 3px solid #86CBC5;
@@ -453,46 +470,61 @@ body {
 	height: 20px;
 	width: 35px;
 }
+#append_row2 {
+	border-radius: 3px;
+	border: 3px solid #86CBC5;
+	background: #fff;
+	height: 20px;
+	width: 60px;
+}
 #p-btn{
 	border-radius: 3px;
     border: 3px solid #86CBC5;
     background: #fff;
-    height: 30px;
-    width: 50px;
+    height: 20px;
+    width: 35px;
 }
-.input_pro {
-  color: #666;
-  font: 14px/24px "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", Sans-Serif;
-  margin:20px;
-  position: absolute;
-  bottom: 100px;
-  
+.text{
+	color: #666;
+	margin: 20px;
 }
+.input_pro  {
+	
+	font: 14px/24px "Open Sans", "HelveticaNeue-Light",
+		"Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial,
+		"Lucida Grande", Sans-Serif;
+	margin: 20px;
+	/* position: absolute; */
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+	border-radius: 10px;
+	border-bottom: 3px solid #009897;
+
+	 bottom: 100px;
+	}
 .input_pro table  {
 	border-collapse: separate;
 	border-spacing: 0;
 	width: 100%;
-	border-radius: 10px;
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+	
+	
 	/*  border:1px solid */
 	/* table-layout: fixed; */}
-.input_pro th{
+
+.input_pro th {
 	border-bottom: 2px solid #86CBC5;
 	border-right: 2px solid #86cbc5;
 	padding: 6px;
-	background: #009897;}
-.input_pro td{
-  padding:5px;
-}
-.input_pro th {
-  
-  color: #fff;
-  text-align: left;
+	background: #009897;
+	color: #fff;
+	text-align: left;
 }
 
 .input_pro td{
- 	border-bottom: 3px solid #009897;
+  padding:5px;
 }
+
+
+
 .input_pro td:first-child {
   /* border-left: 1px solid #c6c9cc; */
 }
@@ -500,9 +532,11 @@ body {
   background: #eaeaed;
 }
 
-.input_pro input{
-  width: 100%;
-}
+.input_pro input {
+	width: 100%;
+	border-radius: 3px;
+	border: 3px solid #dddddd;
+	}
 .input_pro button{
   width: 60px;
 }
@@ -524,7 +558,7 @@ body {
 }
 #pn{
   width: 120px;
-  border-radius: 5px;
+  border-radius: 3px;
   border: 1px solid #fff;
   font-size: 15px;
 }
@@ -532,15 +566,15 @@ body {
 	border-radius: 3px;
 	border: 3px solid #86CBC5;
 	background: #fff;
-	height: 30px;
-	width: 50px;
+	height: 20px;
+	width: 35px;
 	}
 #search-btn{
 	border-radius: 3px;
 	border: 3px solid #86CBC5;
 	background: #fff;
-	height: 30px;
-	width: 50px;
+	height: 20px;
+	width: 35px;
 }
 
 /* #dbox{
@@ -603,11 +637,12 @@ body {
   position: relative;
   background: var(--white);
   padding: 20px;
-  border-radius: 20px;
+  border-radius: 10px;
   display: flex;
   justify-content: space-between;
   cursor: pointer;
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.3);
+  
 }
 
 .menu .card .numbers {
@@ -643,7 +678,7 @@ body {
   color: var(--white);
 }
 /* ======================시세정보=============== */
-.rollingbanner {
+ .rollingbanner {
   position: relative;
   width: 40%;
   padding:23px;
@@ -661,7 +696,7 @@ body {
   display: flex;
   justify-content: space-between;
   cursor: pointer;
-  border: 4px solid #7e7e7e;;
+  border: 4px solid #009897;
 }
 
 .rollingbanner .wrap .li a {
@@ -674,7 +709,7 @@ body {
 
 
 
-/* 롤링 배너 */
+롤링 배너
 .rollingbanner > .wrap{
   position: relative;
   width: auto;
@@ -690,19 +725,13 @@ body {
   top: -50px;
   left: 0;
 }
-/* 이전, 현재, 다음 롤링 배너 표시 */
-.rollingbanner li.prev{
-  top: 50px;
-  transition: top 1s ease;
+이전, 현재, 다음 롤링 배너 표시
+
+#result li:first-child {
+  display: block;
 }
-.rollingbanner li.current{
-  top: 0;
-  transition: top 1s ease;
-}
-.rollingbanner li.next{
-  top: -50px;
-}
-.rollingbanner a{
+
+.rollingbanner li{
   display: block;
   display: -webkit-box;
   text-decoration: none;
@@ -711,6 +740,31 @@ body {
   overflow: hidden;
   color: #000;
 }
+@keyframes slide {
+  0% {
+    top: 0;
+  }
+  5% {
+    top: 0;
+  }
+  10% {
+    top: -100%;
+  }
+  15% {
+    top: -100%;
+  }
+  20% {
+    top: -200%;
+  }
+  /* 중간에 텍스트가 보여지는 시간 조정 */
+  95% {
+    top: -200%;
+  }
+  100% {
+    top: 0;
+  }
+}
+
 /* ================== Charts JS ============== */
 .chartsBx{
   position: relative;
@@ -729,7 +783,7 @@ body {
   width: 99%;
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
   border-radius: 20px;
-  border: 1px solid #7e7e7e;
+  border: 1px solid #86CBC5;
 }
 
 /* 텍스트 박스 */
@@ -743,7 +797,8 @@ body {
   background-color: rgb(255, 255, 255);
   box-shadow: rgba(0, 0, 0, 0.08) 0px 7px 25px;
   border-radius: 10px;
-  border: 1px solid #7e7e7e;
+  border: 1px solid #86CBC5;
+  overflow: auto;
   
 }
 

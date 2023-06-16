@@ -30,3 +30,16 @@ select * from pro_product where userbno ="123456" and pname ="사과";
 select * from pro_product where pname ="사과" and userbno ="123456";
 
 select * from pro_product where pname = "사과";
+
+update pro_product set preceivingquantity = "789456",
+		pshipments = "789456", preceivingdate = "2023-01-01",
+		pshippingdate ="2023-01-01", preceivingamount ="789456",
+		pshippingamount = "789456",pincome = "789456", premarks = "789456"
+		where pseq="79" and userbno ="123456";
+		
+select ftext from pro_fruits where fmonth ="1";
+
+select * from pro_fruits where fmonth = date_format(now(), '%m');
+
+select * from pro_synthesis;
+

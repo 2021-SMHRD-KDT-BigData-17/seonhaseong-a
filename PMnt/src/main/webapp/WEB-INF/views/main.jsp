@@ -33,9 +33,110 @@ application.setAttribute("user", user);
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 	<!-- ======= bootstrap ====== -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+	for(i=1;i<41;i++){
+		  $.ajax({
+		  type: "GET",
+		  url: "http://www.garak.co.kr/publicdata/dataOpen.do?id=3468&passwd=1q2w3e4r!&dataid=data4&pagesize=10&pageidx="+i+"&portal.templet=false&p_ymd=date&p_jymd=20140429&d_cd=2&p_jjymd=20130429&p_pos_gubun=1&pum_nm=",
+		  data: {},
+		  success: function(response) {
+		    console.log(response);
+		    var $response = $(response); // 응답 데이터를 jQuery 객체로 저장
+
+		    $response.find("list").each(function() {
+		      var str = $(this).find("PUM_NM_A").text(); // $(this)를 사용하여 요소 내에서 찾기
+		      var str1 = $(this).find("U_NAME").text();
+		      var str2 = $(this).find("PAV_P_A").text();
+		      var str3 = $(this).find("G_NAME_A").text();
+		      console.log("품목명@@@@@@@" + str + "@@@갯수@@@" + str1 + "@@@가격@@@" + str2);
+		      
+		      var li = document.createElement("li"); // 새로운 <li> 요소 생성
+		      li.textContent = "<a>"+str + "   "+str3+"  " + str1 + "  " + str2+"원</a>"; // 텍스트 설정
+		      
+		      document.getElementById('result').appendChild(li); // 결과를 기존 결과의 뒤에 추가
+		    });
+		  }
+		});
+		  }
+	</script>
 </head>
 
 <body>
+<script>
+
+
+
+// 월별 제철과일의 정보를 출력해줌
+	$(document).ready(function(){
+		// trueproductlist() 함수 호출
+		fruitslist();
+		fruitsCnt();
+		
+	}); // 제일 먼저 실행되는 함수
+	
+	// 제철과일의 정보를 리스트로 담아와서 해당 값을 맞게 실행하는 방법
+	function fruitslist(){
+		console.log("병국쌤 바보");
+		
+		// ajax통신으로 요청 주고 받기
+		
+		$.ajax({
+			url : "${cpath}/fruits.do",
+			type : "get",
+			// data : 보내줄 데이터 없음
+			dataType : "json",
+			success : callBack,
+			error : function(){
+				alert("akax통신 실패!!");
+			
+			} //function() 함수 끝
+			
+		})
+	}
+		
+	// ajax 통신을 성공했을때 실행될 function
+		function callBack(data){
+		console.log(data);
+			var fruitslist = '<div class="textbox">';
+			fruitslist += '<div class="text">추천 상품입니다.</div>';
+			fruitslist += '<div class="text">'+data[0].ftext+'</div>';
+			fruitslist += '</div>'; 
+			// 마지막에 위의 값들이 출력될 위치 정하기
+			$('.box').html(fruitslist);
+		}
+	
+	// chartdp에 데이터 값 출력하기
+	function fruitsCnt(){
+		console.log("chartval 실행 확인");
+		
+		$.ajax({
+			url : "${cpath}/fruitsData.do",
+			type : "get",
+			// data : 보내줄 데이터 없음
+			dataType : "json",
+			success : chartVal,
+			error : function(){
+				alert("akax통신 실패!!");
+			
+			} //function() 함수 끝
+			
+		})
+		
+	}
+	
+	function chartVal(data){
+		
+		/* console.log(data);  */
+		chartData = data;
+		
+	}
+
+	
+	
+	
+	
+</script>
+
 
 
 <%-- <script>
@@ -269,7 +370,7 @@ application.setAttribute("user", user);
         <div class="main">
             <div class="maincon">
 				<div class="btnhome">
-                    <button class="bt11">수정</button><button class="bt22">초기화</button>
+                    <a href="${cpath}/productup.do"><button class="bt11">수정</button></a>
                 </div>
                 <div class="quote">
                     <table id="pro_product">
@@ -363,8 +464,8 @@ application.setAttribute("user", user);
                         </tbody>
                     </table>
                 </div>
+                <div class="text"><h3>제품추가</h3></div>
                 <div class="input_pro">
-                    <h3>제품 추가</h3>
                     <table id="pro_product_plus">
                         <thead>
                             <tr>
@@ -399,7 +500,7 @@ application.setAttribute("user", user);
 					                            <td><input type="text" placeholder="수입" id="pincome" name="pincome"></td>
 					                            <td><input type="text" placeholder="비고" id="premarks" name="premarks"></td>
 					                            <input type="hidden" id="userbno" name="userbno" value = "<%=user.getUserbno() %>">
-					                            <td><button type="submit" id="append_row">제품추가</button></td>
+					                            <td><button type="submit" id="append_row2">제품추가</button></td>
 					                           </tr>
 				                        </tbody>
 		                    		</form>
@@ -408,6 +509,7 @@ application.setAttribute("user", user);
                     	</table>
                 </div>
             </div>
+          
             <!-- =================상품예측=============== -->
             <div class="maincon"><!--2번div-->
                 <div class="menuu">
@@ -419,13 +521,13 @@ application.setAttribute("user", user);
                         </div>
                     </div>
                     <div class="rollingbanner ">
-                        <div class="wrap">
-                            <ul>
-                                <li class="current"><a href="#">사과 1kg 10000원</a></li>
+                        <div class="wrap" >
+                            <ul id="result">
+                               <!-- <li class="current"><a href="#">사과 1kg 10000원</a></li>
                                 <li class="next"><a href="#"></a></li>
                                 <li><a href="#">복숭아 1kg 15000원</a></li>
                                 <li><a href="#">딸기 1kg 20000원</a></li>
-                                <li class="prev"><a href="#">포도 1kg 15000원</a></li>
+                                <li class="prev"><a href="#">포도 1kg 15000원</a></li> -->
                             </ul>
                         </div>
                     </div>
@@ -439,9 +541,9 @@ application.setAttribute("user", user);
                 </div> 
                 <!-- 텍스트 박스 -->
                 <div class="box">
-                    <div class="textbox">
+                    <!-- <div class="textbox">
                         <div class="text"></div>
-                    </div>
+                    </div> -->
                 </div>   
             </div>
             <!-- ================ 회원수정 ================= -->

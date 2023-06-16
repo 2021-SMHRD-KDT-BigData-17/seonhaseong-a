@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import kr.smhrd.PMnt.entity.ProFruits;
 import kr.smhrd.PMnt.entity.ProProduct;
+import kr.smhrd.PMnt.entity.ProSynthesis;
 import kr.smhrd.PMnt.entity.ProUser;
 import kr.smhrd.PMnt.mapper.ProductMapper;
 
@@ -215,6 +216,13 @@ public class ProductController {
 		return fruits;
 	}
 	
+	@GetMapping("/fruitsData.do")
+	public @ResponseBody List<ProSynthesis> fruitsData(){
+		System.out.println("fruitscnt 확인용");
+		List<ProSynthesis> fruitscnt = mapper.fruitsData();
+		System.out.println(fruitscnt);
+		return fruitscnt;
+	}
 	
 	
 }

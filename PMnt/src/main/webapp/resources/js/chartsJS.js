@@ -1,17 +1,25 @@
 const ctx1 = document.getElementById("chart-1").getContext("2d");
+
+var chartData =[];
+
 const myChart = new Chart(ctx1, {
   type: "doughnut",
-  // ===============원형차트=============
   data: {
-    labels: ["딸기", "사과", "수박"],
+    labels: [], // 초기에는 빈 배열로 설정
     datasets: [
       {
         label: "# of Votes",
-        data: [600, 800, 1000],
+        data: [],
         backgroundColor: [
           "rgba(54, 162, 235, 1)",
           "rgba(255, 99, 132, 1)",
           "rgba(255, 206, 86, 1)",
+          "rgba(204, 0, 225, 1)",
+          "rgba(10, 179, 55, 1)",
+          "rgba(35, 255, 255, 1)",
+          "rgba(150, 20, 10, 1)",
+          "rgba(34, 51, 156, 1)",
+          
         ],
       },
     ],
@@ -20,6 +28,17 @@ const myChart = new Chart(ctx1, {
     responsive: true,
   },
 });
+function chartVal(data) {
+  console.log(data);
+  chartData = data;
+	
+  // 데이터를 받은 후에 labels를 업데이트합니다.
+  myChart.data.labels = chartData.map((item) => item.syproduct);
+  myChart.data.datasets[0].data = chartData.map((item) => item.sycnt);
+
+  myChart.update();
+  }
+
 // ==============꺾은선차트==========
 const ctx2 = document.getElementById("chart-2").getContext("2d");
 const myChart2 = new Chart(ctx2, {

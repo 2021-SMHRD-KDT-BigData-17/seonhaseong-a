@@ -40,3 +40,6 @@ update pro_product set preceivingquantity = "789456",
 select ftext from pro_fruits where fmonth ="1";
 
 select * from pro_fruits where fmonth = date_format(now(), '%m');
+
+select * from pro_synthesis;
+

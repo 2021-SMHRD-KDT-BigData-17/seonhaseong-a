@@ -42,6 +42,7 @@ application.setAttribute("user", user);
 	$(document).ready(function(){
 		// trueproductlist() 함수 호출
 		fruitslist();
+		fruitsCnt();
 		
 	}); // 제일 먼저 실행되는 함수
 	
@@ -77,13 +78,30 @@ application.setAttribute("user", user);
 		}
 	
 	// chartdp에 데이터 값 출력하기
-/* 	function chartval(){
-		console.log("chartval 실행 확인")
+	function fruitsCnt(){
+		console.log("chartval 실행 확인");
 		
 		$.ajax({
-			url : ""
+			url : "${cpath}/fruitsData.do",
+			type : "get",
+			// data : 보내줄 데이터 없음
+			dataType : "json",
+			success : chartVal,
+			error : function(){
+				alert("akax통신 실패!!");
+			
+			} //function() 함수 끝
+			
 		})
-	} */
+		
+	}
+	
+	function chartVal(data){
+		
+		/* console.log(data);  */
+		chartData = data;
+		
+	}
 
 	
 	

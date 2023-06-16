@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.smhrd.PMnt.entity.ProProduct;
+import kr.smhrd.PMnt.entity.ProSynthesis;
 import kr.smhrd.PMnt.entity.ProUser;
 import kr.smhrd.PMnt.mapper.LoginMapper;
 import kr.smhrd.PMnt.mapper.ProductMapper;
@@ -69,6 +70,10 @@ public class UserController {
 	    public String mainPage(Model model) {
 	    	List<ProProduct> list = mapper2.productList();
 			model.addAttribute("list", list);
+//			List<ProSynthesis> fruitscnt = mapper2.fruitsData();
+//			model.addAttribute("fruitscnt",fruitscnt);
+//			System.out.println("fruitscnt 확인");
+//			System.out.println(fruitscnt);
 	        return "main";
 	    }
 

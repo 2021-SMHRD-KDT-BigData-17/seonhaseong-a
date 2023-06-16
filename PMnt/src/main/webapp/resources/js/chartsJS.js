@@ -20,6 +20,7 @@ const myChart = new Chart(ctx1, {
           "rgba(150, 20, 10, 1)",
           "rgba(34, 51, 156, 1)",
           
+          
         ],
       },
     ],

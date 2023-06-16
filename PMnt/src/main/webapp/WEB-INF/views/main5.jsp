@@ -12,6 +12,7 @@ ProUser user = (ProUser) session.getAttribute("loginuser");
 
 ProProduct productinfo = (ProProduct) session.getAttribute("product");
 
+
 // 동일한 요청에 의해 실행되는 페이지 간에 정보를 유지하기 위해 HttServletRequest객체에 등록 합니다.
 request.setAttribute("user", user);
 // 클라이언트 단위로 정보를 유지하고자 할때 HttpSession 객체에 등록합니다.

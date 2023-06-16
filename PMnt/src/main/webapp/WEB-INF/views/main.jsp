@@ -33,10 +33,38 @@ application.setAttribute("user", user);
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 	<!-- ======= bootstrap ====== -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+	for(i=1;i<41;i++){
+		  $.ajax({
+		  type: "GET",
+		  url: "http://www.garak.co.kr/publicdata/dataOpen.do?id=3468&passwd=1q2w3e4r!&dataid=data4&pagesize=10&pageidx="+i+"&portal.templet=false&p_ymd=date&p_jymd=20140429&d_cd=2&p_jjymd=20130429&p_pos_gubun=1&pum_nm=",
+		  data: {},
+		  success: function(response) {
+		    console.log(response);
+		    var $response = $(response); // 응답 데이터를 jQuery 객체로 저장
+
+		    $response.find("list").each(function() {
+		      var str = $(this).find("PUM_NM_A").text(); // $(this)를 사용하여 요소 내에서 찾기
+		      var str1 = $(this).find("U_NAME").text();
+		      var str2 = $(this).find("PAV_P_A").text();
+		      var str3 = $(this).find("G_NAME_A").text();
+		      console.log("품목명@@@@@@@" + str + "@@@갯수@@@" + str1 + "@@@가격@@@" + str2);
+		      
+		      var li = document.createElement("li"); // 새로운 <li> 요소 생성
+		      li.textContent = "<a>"+str + "   "+str3+"  " + str1 + "  " + str2+"원</a>"; // 텍스트 설정
+		      
+		      document.getElementById('result').appendChild(li); // 결과를 기존 결과의 뒤에 추가
+		    });
+		  }
+		});
+		  }
+	</script>
 </head>
 
 <body>
 <script>
+
+
 
 // 월별 제철과일의 정보를 출력해줌
 	$(document).ready(function(){
@@ -493,13 +521,13 @@ application.setAttribute("user", user);
                         </div>
                     </div>
                     <div class="rollingbanner ">
-                        <div class="wrap">
-                            <ul>
-                                <li class="current"><a href="#">사과 1kg 10000원</a></li>
+                        <div class="wrap" >
+                            <ul id="result">
+                               <!-- <li class="current"><a href="#">사과 1kg 10000원</a></li>
                                 <li class="next"><a href="#"></a></li>
                                 <li><a href="#">복숭아 1kg 15000원</a></li>
                                 <li><a href="#">딸기 1kg 20000원</a></li>
-                                <li class="prev"><a href="#">포도 1kg 15000원</a></li>
+                                <li class="prev"><a href="#">포도 1kg 15000원</a></li> -->
                             </ul>
                         </div>
                     </div>

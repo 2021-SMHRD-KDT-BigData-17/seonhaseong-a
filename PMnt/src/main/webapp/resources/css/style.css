@@ -678,7 +678,7 @@ th{
   color: var(--white);
 }
 /* ======================시세정보=============== */
-.rollingbanner {
+ .rollingbanner {
   position: relative;
   width: 40%;
   padding:23px;
@@ -709,7 +709,7 @@ th{
 
 
 
-/* 롤링 배너 */
+롤링 배너
 .rollingbanner > .wrap{
   position: relative;
   width: auto;
@@ -725,19 +725,13 @@ th{
   top: -50px;
   left: 0;
 }
-/* 이전, 현재, 다음 롤링 배너 표시 */
-.rollingbanner li.prev{
-  top: 50px;
-  transition: top 1s ease;
+이전, 현재, 다음 롤링 배너 표시
+
+#result li:first-child {
+  display: block;
 }
-.rollingbanner li.current{
-  top: 0;
-  transition: top 1s ease;
-}
-.rollingbanner li.next{
-  top: -50px;
-}
-.rollingbanner a{
+
+.rollingbanner li{
   display: block;
   display: -webkit-box;
   text-decoration: none;
@@ -746,6 +740,31 @@ th{
   overflow: hidden;
   color: #000;
 }
+@keyframes slide {
+  0% {
+    top: 0;
+  }
+  5% {
+    top: 0;
+  }
+  10% {
+    top: -100%;
+  }
+  15% {
+    top: -100%;
+  }
+  20% {
+    top: -200%;
+  }
+  /* 중간에 텍스트가 보여지는 시간 조정 */
+  95% {
+    top: -200%;
+  }
+  100% {
+    top: 0;
+  }
+}
+
 /* ================== Charts JS ============== */
 .chartsBx{
   position: relative;

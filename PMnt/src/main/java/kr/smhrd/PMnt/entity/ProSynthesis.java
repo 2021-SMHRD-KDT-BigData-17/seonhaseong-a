@@ -11,7 +11,6 @@ public class ProSynthesis {
 	private double wmaxtemperature;
 	private double wprecipitation;
 	private double whumidity;
-	private int dcnt;
 	private int scnt;
 	public int getSyseq() {
 		return syseq;
@@ -67,12 +66,6 @@ public class ProSynthesis {
 	public void setWhumidity(double whumidity) {
 		this.whumidity = whumidity;
 	}
-	public int getDcnt() {
-		return dcnt;
-	}
-	public void setDcnt(int dcnt) {
-		this.dcnt = dcnt;
-	}
 	public int getScnt() {
 		return scnt;
 	}
@@ -84,8 +77,7 @@ public class ProSynthesis {
 	public String toString() {
 		return "ProSynthesis [syseq=" + syseq + ", syday=" + syday + ", syproduct=" + syproduct + ", sycnt=" + sycnt
 				+ ", wtemperature=" + wtemperature + ", wmintemperature=" + wmintemperature + ", wmaxtemperature="
-				+ wmaxtemperature + ", wprecipitation=" + wprecipitation + ", whumidity=" + whumidity + ", dcnt=" + dcnt
-				+ ", scnt=" + scnt + "]";
+				+ wmaxtemperature + ", wprecipitation=" + wprecipitation + ", whumidity=" + whumidity + ", scnt=" + scnt + "]";
 	}
 	
 	

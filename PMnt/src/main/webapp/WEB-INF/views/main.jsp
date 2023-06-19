@@ -35,31 +35,59 @@ application.setAttribute("user", user);
 	<!-- ======= bootstrap ====== -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
-	for(i=1;i<41;i++){
-		  $.ajax({
-		  type: "GET",
-		  url: "http://www.garak.co.kr/publicdata/dataOpen.do?id=3468&passwd=1q2w3e4r!&dataid=data4&pagesize=10&pageidx="+i+"&portal.templet=false&p_ymd=date&p_jymd=20140429&d_cd=2&p_jjymd=20130429&p_pos_gubun=1&pum_nm=",
-		  data: {},
-		  success: function(response) {
-		    console.log(response);
-		    var $response = $(response); // 응답 데이터를 jQuery 객체로 저장
 
-		    $response.find("list").each(function() {
-		      var str = $(this).find("PUM_NM_A").text(); // $(this)를 사용하여 요소 내에서 찾기
-		      var str1 = $(this).find("U_NAME").text();
-		      var str2 = $(this).find("PAV_P_A").text();
-		      var str3 = $(this).find("G_NAME_A").text();
-		      console.log("품목명@@@@@@@" + str + "@@@갯수@@@" + str1 + "@@@가격@@@" + str2);
-		      
-		      var li = document.createElement("li"); // 새로운 <li> 요소 생성
-		      li.textContent = "<a>"+str + "   "+str3+"  " + str1 + "  " + str2+"원</a>"; // 텍스트 설정
-		      
-		      document.getElementById('result').appendChild(li); // 결과를 기존 결과의 뒤에 추가
-		    });
-		  }
-		});
-		  }
-	</script>
+        for (i = 1; i < 41; i++) {
+            $.ajax({
+                type: "GET",
+                url: "http://www.garak.co.kr/publicdata/dataOpen.do?id=3468&passwd=1q2w3e4r!&dataid=data4&pagesize=10&pageidx=" + i + "&portal.templet=false&p_ymd=date&p_jymd=20140429&d_cd=2&p_jjymd=20130429&p_pos_gubun=1&pum_nm=",
+                data: {},
+                success: function (response) {
+                    console.log(response);
+                    var $response = $(response); // 응답 데이터를 jQuery 객체로 저장
+
+                    $response.find("list").each(function () {
+                        var str = $(this).find("PUM_NM_A").text(); // $(this)를 사용하여 요소 내에서 찾기
+                        var str1 = $(this).find("U_NAME").text();
+                        var str2 = $(this).find("PAV_P_A").text();
+                        var str3 = $(this).find("G_NAME_A").text();
+                        /* console.log("품목명@@@@@@@" + str + "@@@갯수@@@" + str1 + "@@@가격@@@" + str2); */
+
+                        var li = document.createElement("li"); // 새로운 <li> 요소 생성
+                        var a = document.createElement("a");
+                        a.href = "#"; // Set the href attribute to "#"
+                        a.className = "link"; // Set the class attribute to "link"
+                        a.textContent = str + "   " + str3 + "  " + str1 + "  " + str2 + "원"; // Set the text content to "내용"
+
+
+                        li.appendChild(a);; // 텍스트 설정
+
+                        document.getElementById('rolling').appendChild(li); // 결과를 기존 결과의 뒤에 추가
+                    });
+                }
+            });
+        }
+    </script>
+	<script>
+        $(document).ready(function () {
+            var height = $(".notice").height(); //공지사항의 높이값을 구해주고~~
+            var num = $(".rolling li").length; // 공지사항의 개수를 알아볼수 있어요! length라는 것으로!
+            var max = height * num; //그렇다면 총 높이를 알 수 있겠죠 ?
+            var move = 0; //초기값을 설정해줍니다.
+            function noticeRolling() {
+                move += height; //여기에서 += 이라는 것은 move = move + height 값이라는 뜻을 줄인 거에요.
+                $(".rolling").animate({ "top": -move }, 600, function () { // animate를 통해서 부드럽게 top값을 올려줄거에요.
+                    if (move >= max) { //if문을 통해 최대값보다 top값을 많이 올렸다면 다시 !
+                        $(this).css("top", 0); //0으로 돌려주고~
+                        move = 0; //초기값도 다시 0으로!
+                    };
+                });
+            };
+            noticeRollingOff = setInterval(noticeRolling, 3000); //자동롤링답게 setInterval를 사용해서 1000 = 1초마다 함수 실행!!
+            $(".rolling").append($(".rolling li").first().clone()); //올리다보면 마지막이 안보여서 clone을 통해 첫번째li 복사!
+
+           
+        });
+    </script>
 </head>
 
 <body>
@@ -99,7 +127,7 @@ application.setAttribute("user", user);
 		function callBack(data){
 		console.log(data);
 			var fruitslist = '<div class="textbox">';
-			fruitslist += '<div class="text">추천 상품입니다.</div>';
+			fruitslist += '<h1 class="text">추천 상품은 수박입니다.</h1>';
 			fruitslist += '<div class="text">'+data[0].ftext+'</div>';
 			fruitslist += '</div>'; 
 			// 마지막에 위의 값들이 출력될 위치 정하기
@@ -125,12 +153,12 @@ application.setAttribute("user", user);
 		
 	}
 	
-	function chartVal(data){
+	/* function chartVal(data){
 		
-		/* console.log(data);  */
+		console.log(data);
 		chartData = data;
 		
-	}
+	} */
 
 	
 	
@@ -521,14 +549,10 @@ application.setAttribute("user", user);
                             </div>
                         </div>
                     </div>
-                    <div class="rollingbanner ">
-                        <div class="wrap" >
-                            <ul id="result">
-                               <!-- <li class="current"><a href="#">사과 1kg 10000원</a></li>
-                                <li class="next"><a href="#"></a></li>
-                                <li><a href="#">복숭아 1kg 15000원</a></li>
-                                <li><a href="#">딸기 1kg 20000원</a></li>
-                                <li class="prev"><a href="#">포도 1kg 15000원</a></li> -->
+                    <div class="notice-block">
+                        <div class="notice">
+                            <ul class="rolling" id="rolling">
+                                
                             </ul>
                         </div>
                     </div>

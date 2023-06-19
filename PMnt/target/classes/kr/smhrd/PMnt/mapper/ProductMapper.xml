@@ -52,7 +52,7 @@
    </select>
 	
 	<select id="fruitsData" resultType="kr.smhrd.PMnt.entity.ProSynthesis">
-		SELECT MAX(syseq) AS syseq, DATE_FORMAT(CURDATE() - INTERVAL 1 YEAR, '%Y-%m' ) AS syday, MAX(syproduct) AS syproduct, SUM(sycnt) AS sycnt, MAX(wtemperature) AS wtemperature, MAX(wmintemperature) AS wmintemperature, MAX(wmaxtemperature) AS wmaxtemperature, MAX(wprecipitation) AS wprecipitation, MAX(whumidity) AS whumidity, MAX(dcnt) AS dcnt, MAX(scnt) AS scnt
+		SELECT MAX(syseq) AS syseq, DATE_FORMAT(CURDATE() - INTERVAL 1 YEAR, '%Y-%m' ) AS syday, MAX(syproduct) AS syproduct, SUM(sycnt) AS sycnt, MAX(wtemperature) AS wtemperature, MAX(wmintemperature) AS wmintemperature, MAX(wmaxtemperature) AS wmaxtemperature, MAX(wprecipitation) AS wprecipitation, MAX(whumidity) AS whumidity, MAX(scnt) AS scnt
 		FROM pro_synthesis
 		WHERE DATE_FORMAT(syday, '%Y-%m') = DATE_FORMAT(CURDATE() - INTERVAL 1 YEAR, '%Y-%m')
 		GROUP BY DATE_FORMAT(CURDATE() - INTERVAL 1 YEAR, '%Y-%m'), syproduct;

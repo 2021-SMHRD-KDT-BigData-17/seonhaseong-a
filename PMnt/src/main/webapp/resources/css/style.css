@@ -678,7 +678,7 @@ th{
   color: var(--white);
 }
 /* ======================시세정보=============== */
- .rollingbanner {
+.notice-block {
   position: relative;
   width: 40%;
   padding:23px;
@@ -686,85 +686,27 @@ th{
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 30px;
   float: left;
-  font-size:2rem;
+  font-size:1.5rem;
 }
 
-.rollingbanner .wrap {
+.notice-block .notice {
   position: relative;
   background: var(--white);
-  padding: 23px;
+  /* padding: 23px; */
   display: flex;
   justify-content: space-between;
   cursor: pointer;
   border: 4px solid #009897;
+  overflow:hidden;
 }
-
-.rollingbanner .wrap .li a {
-  position: relative;
-  font-weight: 500;
-  color: var(--black);
-  line-height: normal;
-}
-
-
-
-
-롤링 배너
-.rollingbanner > .wrap{
-  position: relative;
-  width: auto;
-  height: 100%;
-  box-sizing: border-box;
-  overflow: hidden;
-}        
-.rolling ul{
-  list-style: none;
-}
-.rollingbanner li{
-  position: absolute;
-  top: -50px;
-  left: 0;
-}
-이전, 현재, 다음 롤링 배너 표시
-
-#result li:first-child {
-  display: block;
-}
-
-.rollingbanner li{
-  display: block;
-  display: -webkit-box;
+.notice-block .notice li a{
   text-decoration: none;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient:vertical;
-  overflow: hidden;
-  color: #000;
-}
-@keyframes slide {
-  0% {
-    top: 0;
-  }
-  5% {
-    top: 0;
-  }
-  10% {
-    top: -100%;
-  }
-  15% {
-    top: -100%;
-  }
-  20% {
-    top: -200%;
-  }
-  /* 중간에 텍스트가 보여지는 시간 조정 */
-  95% {
-    top: -200%;
-  }
-  100% {
-    top: 0;
-  }
+  color: black;
 }
 
+.notice{width:100%; height:50px; overflow:hidden;}
+  #rolling{position:relative; width:100%; height:auto;}
+  #rolling li{width:100%; height:50px; line-height:50px;}
 /* ================== Charts JS ============== */
 .chartsBx{
   position: relative;

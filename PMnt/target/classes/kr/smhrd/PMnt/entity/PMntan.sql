@@ -43,3 +43,25 @@ select * from pro_fruits where fmonth = date_format(now(), '%m');
 
 select * from pro_synthesis;
 
+SELECT syproduct, wtemperature, CAST(SUM(sycnt) AS SIGNED) AS sycnt
+	    FROM (
+	        SELECT syproduct,
+	            CASE
+	                WHEN wtemperature >= -15 AND wtemperature < -10 THEN -15
+	                WHEN wtemperature >= -10 AND wtemperature < -5 THEN -10
+	                WHEN wtemperature >= -5 AND wtemperature < 0 THEN -5
+	                WHEN wtemperature >= 0 AND wtemperature < 5 THEN 0
+	                WHEN wtemperature >= 5 AND wtemperature < 10 THEN 5
+	                WHEN wtemperature >= 10 AND wtemperature < 15 THEN 10
+	                WHEN wtemperature >= 15 AND wtemperature < 20 THEN 15
+	                WHEN wtemperature >= 20 AND wtemperature < 25 THEN 20
+	                WHEN wtemperature >= 25 AND wtemperature < 30 THEN 25
+	                WHEN wtemperature >= 30 AND wtemperature < 35 THEN 30
+	                ELSE 35
+	            END AS wtemperature,
+	            sycnt
+	        FROM pro_synthesis
+	        WHERE wtemperature >= -15 AND wtemperature <= 35
+	    ) AS subquery
+	    GROUP BY syproduct, wtemperature;
+

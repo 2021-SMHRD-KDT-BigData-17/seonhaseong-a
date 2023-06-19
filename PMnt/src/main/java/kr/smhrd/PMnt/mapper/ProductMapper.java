@@ -36,5 +36,7 @@ public interface ProductMapper {
 	public List<ProFruits>fruitsList();
 
 	public List<ProSynthesis> fruitsData();
+
+	public List<ProSynthesis> tempData();
 	
 }

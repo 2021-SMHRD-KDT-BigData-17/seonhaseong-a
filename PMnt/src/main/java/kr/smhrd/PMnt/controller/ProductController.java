@@ -224,5 +224,12 @@ public class ProductController {
 		return fruitscnt;
 	}
 	
+	@GetMapping("/tempData.do")
+	public @ResponseBody List<ProSynthesis> tempData(){
+		System.out.println("temp 확인용");
+		List<ProSynthesis> temp = mapper.tempData();
+		System.out.println(temp);
+		return temp;
+	}
 	
 }

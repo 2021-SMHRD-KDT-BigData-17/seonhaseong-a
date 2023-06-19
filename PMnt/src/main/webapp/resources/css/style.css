@@ -686,13 +686,13 @@ th{
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 30px;
   float: left;
-  font-size:1.5rem;
+  font-size:1.2rem;
 }
 
 .notice-block .notice {
   position: relative;
   background: var(--white);
-  /* padding: 23px; */
+  
   display: flex;
   justify-content: space-between;
   cursor: pointer;
@@ -702,11 +702,12 @@ th{
 .notice-block .notice li a{
   text-decoration: none;
   color: black;
+  height: 50px;
 }
 
 .notice{width:100%; height:50px; overflow:hidden;}
   #rolling{position:relative; width:100%; height:auto;}
-  #rolling li{width:100%; height:50px; line-height:50px;}
+  #rolling li{width:100%; height:49px; line-height:49px;}
 /* ================== Charts JS ============== */
 .chartsBx{
   position: relative;

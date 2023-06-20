@@ -104,6 +104,7 @@ FROM (
         sycnt
     FROM pro_synthesis
     WHERE wtemperature >= -15 AND wtemperature <= 35
+        AND YEAR(syday) = YEAR(CURRENT_DATE) - 1
 ) AS subquery
 GROUP BY syproduct, wtemperature
 ORDER BY wtemperature ASC;

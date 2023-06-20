@@ -108,7 +108,7 @@ application.setAttribute("user", user);
 		// trueproductlist() 함수 호출
 		fruitslist();
 		fruitsCnt();
-		tempChart()
+		tempChart();
 	}); // 제일 먼저 실행되는 함수
 	
 	// 제철과일의 정보를 리스트로 담아와서 해당 값을 맞게 실행하는 방법
@@ -179,15 +179,6 @@ application.setAttribute("user", user);
 		})
 		
 	}
-	
-	function tempData(data){
-		console.log("tempData 확인")
-		console.log(data);
-		console.log("tempData 확인완료")
-		chartData = data;
-		
-	} 
-
 	
 	
 	

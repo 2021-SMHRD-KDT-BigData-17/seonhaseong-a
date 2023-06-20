@@ -106,6 +106,7 @@ application.setAttribute("user", user);
 		// trueproductlist() 함수 호출
 		fruitslist();
 		fruitsCnt();
+		tempChart();
 	}); // 제일 먼저 실행되는 함수
 	
 	function fruitslist(){
@@ -130,7 +131,7 @@ application.setAttribute("user", user);
 		function callBack(data){
 		console.log(data);
 			var fruitslist = '<div class="textbox">';
-			fruitslist += '<div class="text">추천 상품입니다.</div>';
+			fruitslist += '<h1 class="text">추천 상품은 수박입니다.</h1>';
 			fruitslist += '<div class="text">'+data[0].ftext+'</div>';
 			fruitslist += '</div>'; 
 			$('.box').html(fruitslist);
@@ -159,6 +160,24 @@ application.setAttribute("user", user);
 			
 			/* console.log(data);  */
 			chartData = data;
+			
+		}
+		
+		function tempChart(){
+			console.log("chartval 실행 확인");
+			
+			$.ajax({
+				url : "${cpath}/tempData.do",
+				type : "get",
+				// data : 보내줄 데이터 없음
+				dataType : "json",
+				success : tempData,
+				error : function(){
+					alert("akax통신 실패!!");
+				
+				} //function() 함수 끝
+				
+			})
 			
 		}
 		
@@ -511,14 +530,10 @@ application.setAttribute("user", user);
                             </div>
                         </div>
                     </div>
-                    <div class="rollingbanner ">
-                        <div class="wrap">
-                            <ul>
-                                <li class="current"><a href="#">사과 1kg 10000원</a></li>
-                                <li class="next"><a href="#"></a></li>
-                                <li><a href="#">복숭아 1kg 15000원</a></li>
-                                <li><a href="#">딸기 1kg 20000원</a></li>
-                                <li class="prev"><a href="#">포도 1kg 15000원</a></li>
+                    <div class="notice-block">
+                        <div class="notice">
+                            <ul class="rolling" id="rolling">
+                                
                             </ul>
                         </div>
                     </div>

@@ -25,7 +25,7 @@
    
 	<!-- 제품명 검색기능 sql문 -->
 	<select id = "productSearch" resultType = "kr.smhrd.PMnt.entity.ProProduct">
-		select * from pro_product where pname = #{pname} and userbno = #{userbno}
+		select * from pro_product where pname = #{pname} and userbno = #{userbno} order by preceivingdate desc
 	</select>
 	
 	<!-- 입고일 검색기능 sql문 -->

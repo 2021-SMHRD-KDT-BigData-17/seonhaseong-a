@@ -494,7 +494,7 @@ application.setAttribute("user", user);
 	                        			<td>${productl.pshipments}</td> <!-- 출고량 -->
 	                        			<td>${productl.preceivingdate}</td> <!-- 입고일 --> 
 	                        			<td>${productl.pshippingdate}</td> <!-- 출고일 -->
-	                        			<td>${productl.pexpirationdate}</td> <!-- 소비기한 -->
+	                        			<td>${productl.pexpirationdate}일</td> <!-- 소비기한 -->
 	                        			<td>${productl.preceivingamount}</td> <!-- 입고금액 -->
 	                        			<td>${productl.pshippingamount}</td> <!-- 출고금액 -->
 	                        			<td>${productl.pincome}</td> <!-- 수입 -->

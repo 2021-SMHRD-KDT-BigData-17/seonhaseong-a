@@ -450,7 +450,7 @@ application.setAttribute("user", user);
 											<td><input type="text" placeholder="${productl.pshipments}"  name ="pshipments" style="width:70px"></td>
 											<td><input type="date" value="${productl.preceivingdate}"  name ="preceivingdate"></td>
 											<td><input type="date" value="${productl.pshippingdate}"  name ="pshippingdate"></td>
-											<td>${productl.pexpirationdate}</td> <!-- 소비기한 -->
+											<td>${productl.pexpirationdate}일</td> <!-- 소비기한 -->
 											<td><input type="text" placeholder="${productl.preceivingamount}"  name="preceivingamount" style="width:70px"></td>
 											<td><input type="text" placeholder="${productl.pshippingamount}"  name="pshippingamount" style="width:70px"></td>
 											<td><input type="text" placeholder="${productl.pincome}"  name="pincome" style="width:70px"></td>
